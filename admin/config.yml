@@ -2,52 +2,64 @@ backend:
   name: github
   repo: Nerdlove-ai/lauranguyen
   branch: main
+  base_url: https://sveltia-cms-auth.pages.dev
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
 
 collections:
   - name: "journal"
-    label: "Journal"
-    folder: "_posts/journal"
+    label: "About Me / Journal"
+    folder: "src/posts/journal"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Excerpt", name: "excerpt", widget: "text"}
-      - {label: "Published", name: "published", widget: "boolean", default: true}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "hidden", default: "journal" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+      - { label: "Content", name: "body", widget: "markdown" }
+
   - name: "research"
-    label: "Research"
-    folder: "_posts/research"
+    label: "Research Journey"
+    folder: "src/posts/research"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Excerpt", name: "excerpt", widget: "text"}
-      - {label: "Published", name: "published", widget: "boolean", default: true}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "hidden", default: "research" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+      - { label: "Content", name: "body", widget: "markdown" }
+
   - name: "reflections"
-    label: "Reflections"
-    folder: "_posts/reflections"
+    label: "Responsible AI Reflections"
+    folder: "src/posts/reflections"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Excerpt", name: "excerpt", widget: "text"}
-      - {label: "Published", name: "published", widget: "boolean", default: true}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "hidden", default: "reflections" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+      - { label: "Content", name: "body", widget: "markdown" }
+
   - name: "resources"
     label: "Resources"
-    folder: "_posts/resources"
+    folder: "src/posts/resources"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Excerpt", name: "excerpt", widget: "text"}
-      - {label: "Published", name: "published", widget: "boolean", default: true}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "hidden", default: "resources" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+      - { label: "Content", name: "body", widget: "markdown" }

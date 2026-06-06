@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Analysts are optimistic — and machine learning can now quantify exactly how much — Laura Nguyen</title>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FDF6EF;--cream2:#F5EDE0;--terra:#C4714F;--terra-lt:#E8A87C;
+  --brown:#2C1A0E;--brown-md:#6B4226;--brown-lt:#A07050;--white:#fff;
+  --shadow:0 4px 24px rgba(44,26,14,.08);--radius:14px
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--brown);line-height:1.7}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--cream2);padding:0 2rem;display:flex;align-items:center;
+  justify-content:space-between;height:64px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;
+  color:var(--brown);text-decoration:none}
+.nav-logo span{color:var(--terra)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;font-size:.875rem;font-weight:500;
+  color:var(--brown-md);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--terra)}
+
+.hero{max-width:860px;margin:0 auto;padding:80px 2rem 60px;display:flex;align-items:center;gap:3rem}
+.hero-avatar{width:120px;height:120px;flex-shrink:0;border-radius:50%;
+  background:linear-gradient(135deg,var(--terra-lt),var(--terra));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:2.5rem;color:#fff;font-weight:700;
+  box-shadow:0 8px 32px rgba(196,113,79,.3)}
+.hero-text h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;
+  line-height:1.2;margin-bottom:.75rem}
+.hero-text h1 em{color:var(--terra);font-style:italic}
+.hero-text p{font-size:1.05rem;color:var(--brown-md);max-width:540px;margin-bottom:1.25rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{background:var(--cream2);border-radius:20px;padding:4px 14px;font-size:.8rem;
+  color:var(--brown-md);font-weight:500}
+.tag.terra{background:var(--terra);color:#fff}
+
+.divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
+.divider hr{border:none;border-top:1.5px solid var(--cream2)}
+
+section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
+.section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
+.section-title .dot{color:var(--terra)}
+.section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
+.see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
+.see-all:hover{text-decoration:underline}
+
+.cards{display:grid;gap:1.25rem}
+.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
+.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
+  box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
+  transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
+  text-decoration:none;color:inherit}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 36px rgba(44,26,14,.12)}
+.card.featured{background:linear-gradient(135deg,#FEF0E8,#FDF6EF);border:1.5px solid rgba(196,113,79,.2)}
+.card-cat{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--terra)}
+.card-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;line-height:1.4;color:var(--brown)}
+.card.featured .card-title{font-size:1.3rem}
+.card-excerpt{font-size:.88rem;color:var(--brown-md);line-height:1.65;flex:1}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:.25rem}
+.card-date{font-size:.78rem;color:var(--brown-lt)}
+.card-link{font-size:.8rem;font-weight:600;color:var(--terra)}
+
+.about-card{background:var(--white);border-radius:var(--radius);padding:2rem 2.25rem;
+  box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
+  display:flex;gap:2rem;align-items:flex-start}
+.about-accent{width:4px;flex-shrink:0;border-radius:4px;
+  background:linear-gradient(to bottom,var(--terra),var(--terra-lt));
+  align-self:stretch;min-height:60px}
+.about-body p{font-size:.95rem;color:var(--brown-md);margin-bottom:.75rem}
+.about-body p:last-child{margin-bottom:0}
+.about-body strong{color:var(--brown)}
+
+/* SINGLE POST */
+.post-container{max-width:720px;margin:0 auto;padding:2rem}
+.post-back{display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;
+  color:var(--terra);font-size:.875rem;font-weight:600;text-decoration:none}
+.post-back:hover{text-decoration:underline}
+.post-cat-badge{font-size:.72rem;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--terra);margin-bottom:.75rem}
+.post-title-main{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;
+  line-height:1.25;margin-bottom:1rem}
+.post-meta{font-size:.82rem;color:var(--brown-lt);margin-bottom:2rem}
+.post-body p{font-size:1rem;color:var(--brown-md);margin-bottom:1.25rem;line-height:1.8}
+.post-body h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;
+  color:var(--brown);margin:2rem 0 .75rem}
+.post-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;
+  color:var(--brown);margin:1.5rem 0 .5rem}
+.post-body ul,.post-body ol{padding-left:1.5rem;margin-bottom:1.25rem;color:var(--brown-md)}
+.post-body li{margin-bottom:.4rem;line-height:1.7}
+.post-body blockquote{border-left:3px solid var(--terra-lt);padding:.5rem 1rem;
+  margin:1.25rem 0;font-style:italic;color:var(--brown-lt);font-size:.95rem}
+.post-body a{color:var(--terra)}
+.post-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem;padding-top:1.5rem;
+  border-top:1px solid var(--cream2)}
+.post-tag{background:var(--cream2);border-radius:20px;padding:3px 12px;
+  font-size:.75rem;color:var(--brown-md)}
+
+/* CATEGORY PAGE */
+.cat-header{max-width:860px;margin:0 auto;padding:60px 2rem 40px}
+.cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
+.cat-header h1 span{color:var(--terra)}
+.cat-header p{color:var(--brown-md);font-size:1rem}
+.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+
+.newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+.newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
+  padding:2.5rem;text-align:center;color:#fff}
+.newsletter h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:.5rem}
+.newsletter p{font-size:.9rem;opacity:.85;margin-bottom:1.5rem}
+.newsletter-form{display:flex;gap:.75rem;max-width:420px;margin:0 auto}
+.newsletter-form input{flex:1;padding:.65rem 1rem;border:none;border-radius:8px;
+  font-size:.9rem;outline:none;font-family:'Inter',sans-serif}
+.newsletter-form button{padding:.65rem 1.25rem;background:var(--brown);color:#fff;
+  border:none;border-radius:8px;font-weight:600;font-size:.85rem;cursor:pointer;
+  font-family:'Inter',sans-serif;white-space:nowrap}
+
+footer{background:var(--brown);color:rgba(255,255,255,.7);text-align:center;padding:2.5rem 2rem}
+.footer-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.5rem}
+footer p{font-size:.82rem;margin-bottom:1rem}
+.social-links{display:flex;justify-content:center;gap:1.25rem}
+.social-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem;font-weight:500}
+.social-links a:hover{color:var(--terra-lt)}
+
+.empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
+
+@media(max-width:640px){
+  .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
+  .hero-text h1{font-size:1.8rem}
+  nav{padding:0 1.25rem}
+  .nav-links{gap:1.25rem}
+  .nav-links a{font-size:.78rem}
+  section{padding:0 1.25rem;margin-bottom:60px}
+  .cards-2,.cards-3{grid-template-columns:1fr}
+  .newsletter-wrap{padding:0 1.25rem}
+  .newsletter-form{flex-direction:column}
+  .about-card{flex-direction:column;gap:1rem}
+  .about-accent{width:100%;height:4px;min-height:unset}
+  .divider{padding:0 1.25rem}
+  .post-container{padding:1.25rem}
+  .post-title-main{font-size:1.5rem}
+  .cat-header{padding:40px 1.25rem 30px}
+  .cat-grid{padding:0 1.25rem 60px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Laura <span>Nguyen</span></a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/research/" class="">Research</a></li>
+    <li><a href="/reflections/" class="">Reflections</a></li>
+    <li><a href="/resources/" class="">Resources</a></li>
+  </ul>
+</nav>
+
+<div class="post-container">
+  <a class="post-back" href="/">← Back to all posts</a>
+
+  
+  
+  
+
+  <div class="post-cat-badge">Research Journey</div>
+  <h1 class="post-title-main">Analysts are optimistic — and machine learning can now quantify exactly how much</h1>
+  <div class="post-meta">June 6, 2026</div>
+
+  <div class="post-body">
+    <p><em>Source: van Binsbergen, Han &amp; Lopez-Lira (2023) — “Man versus Machine Learning: The Term Structure of Earnings Expectations and Conditional Biases”</em></p>
+<p>Analyst earnings forecasts are optimistic. This has been known for decades — the literature on analyst bias is extensive. What this paper adds is a way to measure the bias precisely, in real time, using a machine learning benchmark that provides a statistically optimal unbiased forecast.</p>
+<p>The idea: train a machine learning model to produce unbiased earnings expectations based on publicly available information. Then define analyst bias as the difference between what the analyst forecasts and what the ML model forecasts. This “conditional bias” can be measured for each analyst, each firm, and each point in time.</p>
+<p>Several findings follow from this measurement approach. Analyst forecasts are, on average, biased upward — the ML model’s expectations are lower. The bias increases with forecast horizon: the further out the forecast, the more optimistic analysts are relative to the unbiased benchmark. This is consistent with analysts providing strategically optimistic long-run forecasts to maintain management access and investor relationships, while gradually revising down as the reporting date approaches.</p>
+<p>The capital market implications are significant. Firms with the most upward-biased analyst forecasts — those where analysts are most optimistic relative to the ML benchmark — are associated with negative cross-sectional return predictability. Investors who’ve been priced off analyst optimism get disappointed when reality arrives.</p>
+<p>More striking: the short legs of many established market anomalies are populated by firms with excessively optimistic analyst forecasts. This suggests that analyst bias is not just a minor inefficiency — it may be a common thread linking multiple anomalies that have previously been studied in isolation.</p>
+<p>The managers-exploit-optimism finding is also worth noting. Managers of companies where analysts are most upward-biased are more likely to issue equity — a rational response to overvaluation. They’re selling stock when analysts have talked the price up.</p>
+<p>What I find genuinely useful about this framework: it provides a rigorous, real-time measure of analyst bias that could inform both investment strategy and research. Previous bias measures were mostly backward-looking. The ML benchmark approach makes the measurement contemporaneous.</p>
+
+  </div>
+
+  
+  <div class="post-tags">
+    
+    
+    
+    
+    <span class="post-tag">Accounting &amp; Finance</span>
+    
+    
+    
+    <span class="post-tag">AI in Business</span>
+    
+    
+    
+    <span class="post-tag">research</span>
+    
+    
+    
+    <span class="post-tag">capital markets</span>
+    
+    
+  </div>
+  
+</div>
+
+
+<footer>
+  <div class="footer-name">Laura Nguyen</div>
+  <p>DBAI candidate · PolyU Hong Kong · Writing about AI, research & everything in between</p>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/lauranguyent/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://x.com/Lauranguyent" target="_blank" rel="noopener">X / Twitter</a>
+    <a href="mailto:laura@genaifund.ai">Email me</a>
+  </div>
+</footer>
+
+<script>
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on("init", user => {
+    if (!user) {
+      window.netlifyIdentity.on("login", () => document.location.href = "/admin/");
+    }
+  });
+}
+</script>
+</body>
+</html>

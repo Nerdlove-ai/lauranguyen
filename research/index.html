@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Research Journey — Laura Nguyen</title>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FDF6EF;--cream2:#F5EDE0;--terra:#C4714F;--terra-lt:#E8A87C;
+  --brown:#2C1A0E;--brown-md:#6B4226;--brown-lt:#A07050;--white:#fff;
+  --shadow:0 4px 24px rgba(44,26,14,.08);--radius:14px
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--brown);line-height:1.7}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--cream2);padding:0 2rem;display:flex;align-items:center;
+  justify-content:space-between;height:64px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;
+  color:var(--brown);text-decoration:none}
+.nav-logo span{color:var(--terra)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;font-size:.875rem;font-weight:500;
+  color:var(--brown-md);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--terra)}
+
+.hero{max-width:860px;margin:0 auto;padding:80px 2rem 60px;display:flex;align-items:center;gap:3rem}
+.hero-avatar{width:120px;height:120px;flex-shrink:0;border-radius:50%;
+  background:linear-gradient(135deg,var(--terra-lt),var(--terra));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:2.5rem;color:#fff;font-weight:700;
+  box-shadow:0 8px 32px rgba(196,113,79,.3)}
+.hero-text h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;
+  line-height:1.2;margin-bottom:.75rem}
+.hero-text h1 em{color:var(--terra);font-style:italic}
+.hero-text p{font-size:1.05rem;color:var(--brown-md);max-width:540px;margin-bottom:1.25rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{background:var(--cream2);border-radius:20px;padding:4px 14px;font-size:.8rem;
+  color:var(--brown-md);font-weight:500}
+.tag.terra{background:var(--terra);color:#fff}
+
+.divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
+.divider hr{border:none;border-top:1.5px solid var(--cream2)}
+
+section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
+.section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
+.section-title .dot{color:var(--terra)}
+.section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
+.see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
+.see-all:hover{text-decoration:underline}
+
+.cards{display:grid;gap:1.25rem}
+.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
+.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
+  box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
+  transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
+  text-decoration:none;color:inherit}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 36px rgba(44,26,14,.12)}
+.card.featured{background:linear-gradient(135deg,#FEF0E8,#FDF6EF);border:1.5px solid rgba(196,113,79,.2)}
+.card-cat{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--terra)}
+.card-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;line-height:1.4;color:var(--brown)}
+.card.featured .card-title{font-size:1.3rem}
+.card-excerpt{font-size:.88rem;color:var(--brown-md);line-height:1.65;flex:1}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:.25rem}
+.card-date{font-size:.78rem;color:var(--brown-lt)}
+.card-link{font-size:.8rem;font-weight:600;color:var(--terra)}
+
+.about-card{background:var(--white);border-radius:var(--radius);padding:2rem 2.25rem;
+  box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
+  display:flex;gap:2rem;align-items:flex-start}
+.about-accent{width:4px;flex-shrink:0;border-radius:4px;
+  background:linear-gradient(to bottom,var(--terra),var(--terra-lt));
+  align-self:stretch;min-height:60px}
+.about-body p{font-size:.95rem;color:var(--brown-md);margin-bottom:.75rem}
+.about-body p:last-child{margin-bottom:0}
+.about-body strong{color:var(--brown)}
+
+/* SINGLE POST */
+.post-container{max-width:720px;margin:0 auto;padding:2rem}
+.post-back{display:inline-flex;align-items:center;gap:6px;margin-bottom:2rem;
+  color:var(--terra);font-size:.875rem;font-weight:600;text-decoration:none}
+.post-back:hover{text-decoration:underline}
+.post-cat-badge{font-size:.72rem;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--terra);margin-bottom:.75rem}
+.post-title-main{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;
+  line-height:1.25;margin-bottom:1rem}
+.post-meta{font-size:.82rem;color:var(--brown-lt);margin-bottom:2rem}
+.post-body p{font-size:1rem;color:var(--brown-md);margin-bottom:1.25rem;line-height:1.8}
+.post-body h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;
+  color:var(--brown);margin:2rem 0 .75rem}
+.post-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;
+  color:var(--brown);margin:1.5rem 0 .5rem}
+.post-body ul,.post-body ol{padding-left:1.5rem;margin-bottom:1.25rem;color:var(--brown-md)}
+.post-body li{margin-bottom:.4rem;line-height:1.7}
+.post-body blockquote{border-left:3px solid var(--terra-lt);padding:.5rem 1rem;
+  margin:1.25rem 0;font-style:italic;color:var(--brown-lt);font-size:.95rem}
+.post-body a{color:var(--terra)}
+.post-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem;padding-top:1.5rem;
+  border-top:1px solid var(--cream2)}
+.post-tag{background:var(--cream2);border-radius:20px;padding:3px 12px;
+  font-size:.75rem;color:var(--brown-md)}
+
+/* CATEGORY PAGE */
+.cat-header{max-width:860px;margin:0 auto;padding:60px 2rem 40px}
+.cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
+.cat-header h1 span{color:var(--terra)}
+.cat-header p{color:var(--brown-md);font-size:1rem}
+.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+
+.newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+.newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
+  padding:2.5rem;text-align:center;color:#fff}
+.newsletter h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:.5rem}
+.newsletter p{font-size:.9rem;opacity:.85;margin-bottom:1.5rem}
+.newsletter-form{display:flex;gap:.75rem;max-width:420px;margin:0 auto}
+.newsletter-form input{flex:1;padding:.65rem 1rem;border:none;border-radius:8px;
+  font-size:.9rem;outline:none;font-family:'Inter',sans-serif}
+.newsletter-form button{padding:.65rem 1.25rem;background:var(--brown);color:#fff;
+  border:none;border-radius:8px;font-weight:600;font-size:.85rem;cursor:pointer;
+  font-family:'Inter',sans-serif;white-space:nowrap}
+
+footer{background:var(--brown);color:rgba(255,255,255,.7);text-align:center;padding:2.5rem 2rem}
+.footer-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.5rem}
+footer p{font-size:.82rem;margin-bottom:1rem}
+.social-links{display:flex;justify-content:center;gap:1.25rem}
+.social-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem;font-weight:500}
+.social-links a:hover{color:var(--terra-lt)}
+
+.empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
+
+@media(max-width:640px){
+  .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
+  .hero-text h1{font-size:1.8rem}
+  nav{padding:0 1.25rem}
+  .nav-links{gap:1.25rem}
+  .nav-links a{font-size:.78rem}
+  section{padding:0 1.25rem;margin-bottom:60px}
+  .cards-2,.cards-3{grid-template-columns:1fr}
+  .newsletter-wrap{padding:0 1.25rem}
+  .newsletter-form{flex-direction:column}
+  .about-card{flex-direction:column;gap:1rem}
+  .about-accent{width:100%;height:4px;min-height:unset}
+  .divider{padding:0 1.25rem}
+  .post-container{padding:1.25rem}
+  .post-title-main{font-size:1.5rem}
+  .cat-header{padding:40px 1.25rem 30px}
+  .cat-grid{padding:0 1.25rem 60px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Laura <span>Nguyen</span></a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/research/" class="active">Research</a></li>
+    <li><a href="/reflections/" class="">Reflections</a></li>
+    <li><a href="/resources/" class="">Resources</a></li>
+  </ul>
+</nav>
+
+<div class="cat-header">
+  <h1>Research <span>Journey</span></h1>
+  <p>Notes, findings, and honest reflections from my DBAI at PolyU Hong Kong.</p>
+</div>
+<div class="cat-grid">
+  
+  
+  <div class="cards cards-2">
+    
+    <a class="card featured" href="/posts/research/2026-06-06-accounting-hallucinations/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">When AI makes up financial numbers — the hallucination problem in accounting applications</div>
+      <div class="card-excerpt">LLMs asked about financial statements hallucinate in two ways: deviating from real numbers and fabricating entirely fictional ones. More public information means fewer deviations but more fabrications.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-ai-frees-analysts/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">When AI handles the routine work, analysts shift toward the work that actually matters</div>
+      <div class="card-excerpt">Investment bank AI investments led to better forecasts and broader coverage — not by replacing analysts, but by freeing them to focus on private information rather than public data processing.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-ai-in-academic-research/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">What happens when AI writes accounting research — and when it hallucinates results</div>
+      <div class="card-excerpt">Researchers used AI to identify economic shocks, design studies, and write draft papers. For some tasks it was genuinely useful. For others, it produced professional-looking papers with completely fabricated results.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-ai-written-disclosures/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">AI is already writing parts of corporate financial disclosures — and we can detect it</div>
+      <div class="card-excerpt">By 2024, up to 4.5% of new text in certain SEC filings showed statistically significant generative AI usage. The implications for disclosure quality are still being worked out.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-analyst-bias-ml-benchmark/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Analysts are optimistic — and machine learning can now quantify exactly how much</div>
+      <div class="card-excerpt">A machine learning benchmark for earnings expectations reveals that analysts&#39; forecasts are systematically biased upward, and the bias increases with forecast horizon. This bias is tradeable — and it explains a surprising amount of known market anomalies.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-analyst-face-value/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Do investors judge analysts by how they look? The uncomfortable evidence says partly yes.</div>
+      <div class="card-excerpt">AI-derived facial trait scores from analyst photos predict aspects of their career outcomes and market influence — independent of their actual performance. This is a capital markets fairness problem with AI-measurement implications.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-annual-report-readability/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The obfuscation hypothesis — why bad news comes wrapped in difficult prose</div>
+      <div class="card-excerpt">Annual reports from firms with lower earnings are harder to read. This isn&#39;t coincidental — it&#39;s consistent with a deliberate management strategy that the market doesn&#39;t fully see through.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-ceo-depression-voice/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Detecting CEO depression through voice — and why it predicts corporate outcomes</div>
+      <div class="card-excerpt">A machine learning model applied to CEO conference call audio can measure depression-related vocal patterns. Those patterns correlate with subsequent corporate decisions in ways that matter.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-ceo-empathy-ai-measurement/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Measuring CEO empathy with AI — and what it predicts about firm outcomes</div>
+      <div class="card-excerpt">Researchers developed an AI-based measure of CEO empathy from interview behaviour. It turns out to matter for corporate outcomes — but not always in the direction you&#39;d expect.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-ceo-facial-expressions/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The CEO&#39;s face during an interview tells analysts something — even if they can&#39;t explain why</div>
+      <div class="card-excerpt">When a CEO looks happy but the earnings are bad, analysts disagree more afterwards. Computer vision is now making it possible to study the signals markets couldn&#39;t previously measure.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-chatgpt-ban-italy/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Italy banned ChatGPT. Here&#39;s what happened to financial analysts.</div>
+      <div class="card-excerpt">A natural experiment nobody planned: when Italy blocked ChatGPT access in 2023, analysts who&#39;d been using it issued fewer forecasts, with lower accuracy. The dependence was deeper than expected.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-chatgpt-outages-trading/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">When ChatGPT goes down, trading volume drops — a natural experiment in AI dependence</div>
+      <div class="card-excerpt">ChatGPT outages caused measurable declines in stock trading volume, particularly for firms with news. The mechanism appears to be investors using AI to process information before making trades.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-chatgpt-vs-deepseek-foreign-bias/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">ChatGPT is bullish on Chinese stocks. DeepSeek isn&#39;t. Both are wrong.</div>
+      <div class="card-excerpt">U.S.-trained and China-trained AI models produce systematically different financial forecasts for the same firms. The gap is driven by information availability — and it has real market implications.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-corporate-ai-disclosures/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">When companies talk about AI — signals or just noise?</div>
+      <div class="card-excerpt">Corporate AI disclosure has surged since 2022. This paper tries to figure out whether those disclosures actually mean anything — or whether it&#39;s mostly performance.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-corporate-culture-genai/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Whose view of corporate culture is right — employees, analysts, or managers?</div>
+      <div class="card-excerpt">Generative AI applied to analyst reports, call transcripts, and employee reviews reveals that different stakeholders assess corporate culture very differently. And those differences have economic consequences.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-corporate-culture-ml/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Measuring corporate culture at scale — and finding it predicts more than you&#39;d expect</div>
+      <div class="card-excerpt">Machine learning applied to 209,000 earnings call transcripts creates a quantitative measure of five cultural values. The resulting scores predict real business outcomes — and the link is strongest in bad times.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-corporate-genai-conference-calls/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">How companies talked about ChatGPT in the months after it launched — and what it signals</div>
+      <div class="card-excerpt">After ChatGPT&#39;s launch, managerial discussions of generative AI in conference calls surged. The pattern of who discussed it and how is revealing about corporate AI adoption dynamics.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-detailed-financial-data-ml/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The case for detailed financial data — why aggregated numbers leave prediction on the table</div>
+      <div class="card-excerpt">Most earnings prediction models use a handful of summary financial ratios. This paper shows that using granular line-item data with machine learning substantially improves predictive power — and the gap matters economically.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-finbert-financial-nlp/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">FinBERT and the problem with general-purpose NLP in financial text</div>
+      <div class="card-excerpt">General language models misread financial text in systematic ways. FinBERT fixes this by learning the domain — and the improvement is largest exactly where it matters most.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-haid-earnings-calls/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">What executives say that ChatGPT wouldn&#39;t — a new way to measure information in earnings calls</div>
+      <div class="card-excerpt">When you subtract what an AI would have said from what the executive actually said, you get a surprisingly useful measure of real information content.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-how-investors-use-genai/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">What do investors actually ask AI? Evidence from 1.7 million stock queries</div>
+      <div class="card-excerpt">A dataset of 1.7 million stock-related AI queries from one of China&#39;s largest GenAI platforms in 2024 gives the first large-scale picture of how retail and institutional investors are actually using these tools.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-lookahead-bias-ai-finance/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The look-ahead bias problem — why AI financial predictions may be more impressive than they are</div>
+      <div class="card-excerpt">A significant portion of AI outperformance in financial prediction tasks may reflect look-ahead bias — the model has seen future data during training. This is harder to detect and more common than it appears.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-loughran-mcdonald-dictionary/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Why &quot;liability&quot; isn&#39;t a negative word — the problem with generic sentiment dictionaries in finance</div>
+      <div class="card-excerpt">Three-quarters of the words flagged as &quot;negative&quot; by the Harvard sentiment dictionary in financial filings aren&#39;t actually negative in context. This foundational paper explains why — and what to do instead.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-man-plus-machine-stock-analysis/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Man + Machine beats Man vs Machine — the collaborative model for stock analysis</div>
+      <div class="card-excerpt">An AI analyst trained on corporate disclosures outperforms most human analysts on stock predictions. But humans still win when institutional knowledge matters — and the combination beats both.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-misleading-charts-earnings/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The misleading chart problem — how visual disclosure shapes and distorts investor understanding</div>
+      <div class="card-excerpt">Not all charts clarify. Some are designed to mislead — and the market temporarily falls for it. Computer vision applied to 432,000 slides reveals the pattern.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-ml-conservatism-accounting/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Using machine learning to measure what accounting has always struggled to quantify</div>
+      <div class="card-excerpt">Accounting conservatism is a concept everyone uses but no one can measure cleanly. Machine learning offers a way to do better — and reveals things the linear models were hiding.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-ml-extreme-earnings/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Machine learning is most useful for earnings forecasts precisely where human analysts are worst</div>
+      <div class="card-excerpt">Earnings prediction improvements from ML are concentrated in the tails — the extreme jumps and crashes that move stock prices most. That&#39;s exactly where analysts have the biggest blind spots.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-ml-filtering-noise-accounting/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Machine learning as a noise filter — what non-linear accounting relationships reveal</div>
+      <div class="card-excerpt">When you allow accounting relationships to be non-linear and condition them on observable firm characteristics, you filter out a lot of noise that linear models mistake for signal. The result changes what we think we know.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-numbers-and-narrative-context/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The number and its story — why context transforms what accounting data means</div>
+      <div class="card-excerpt">The same earnings number means different things depending on the narrative around it. Deep learning can now measure how much the context is doing — and it turns out to be doing a lot.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-photo-sentiment-markets/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">A picture is worth a thousand words — measuring investor sentiment from news photos</div>
+      <div class="card-excerpt">News photos carry sentiment that text doesn&#39;t fully capture. Machine learning applied to thousands of news images produces a daily sentiment index that predicts market return reversals.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-predicting-material-misstatements/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Predicting fraud before it happens — machine learning for material misstatement forecasting</div>
+      <div class="card-excerpt">Moving beyond detecting past misstatements to predicting future ones is a fundamentally different problem. Machine learning on financial and audit variables can do it — and the predictions have economic value for investors, auditors, and regulators.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-satellite-container-ports/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Shipping containers from orbit — how satellite data predicts stock returns in 27 countries</div>
+      <div class="card-excerpt">Satellite images of container ports, processed via deep learning to count containers, can predict stock index returns in 27 out of 33 countries at daily frequency. Alternative data at its most literal.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-satellite-data-capital-markets/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Satellites over shopping centres — what alternative data does to information asymmetry</div>
+      <div class="card-excerpt">When satellite data on retailer parking lots became available to sophisticated investors, they could predict quarterly results before release. The information advantage was real — and it made markets less fair.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-seeking-alpha-ai/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">AI articles on Seeking Alpha — more coverage, but less insight per article</div>
+      <div class="card-excerpt">AI made Seeking Alpha contributors more productive. It also made their articles less informative. The net effect on markets was surprisingly positive — but for a counterintuitive reason.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-vocal-quality-earnings/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">How you say it matters — vocal quality, bad news, and market reactions</div>
+      <div class="card-excerpt">Executives deliver bad news differently — in ways detectable by machine but not always obvious to human listeners. The market doesn&#39;t always catch it.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-06-writing-for-machines/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Companies are quietly rewriting their disclosures for AI readers</div>
+      <div class="card-excerpt">As algorithmic readers became important shareholders, firms started making their filings more machine-friendly. This paper provides evidence that the feedback loop is real.</div>
+      <div class="card-footer">
+        <span class="card-date">June 6, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-agent-harness/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The missing layer — why AI agents need an operating system</div>
+      <div class="card-excerpt">The agent harness is the layer between the raw model and the application — managing memory, tools, and context over time. Without it, even the best models fail on long tasks.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-agentark-distillation/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The deployment dilemma — choosing between speed and intelligence in AI agents</div>
+      <div class="card-excerpt">Fast and cheap means single agents. Smart and reliable means multi-agent systems. The cost and latency gap between them is the central engineering challenge of AI deployment in 2026.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-agentark/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Can you distill multi-agent intelligence into a single model? AgentArk says yes.</div>
+      <div class="card-excerpt">Multi-agent systems reason better but cost exponentially more. AgentArk proposes a third path — bake the multi-agent reasoning into a single model&#39;s weights during training.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-agi-definition/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">We finally have a rigorous definition of AGI. Here&#39;s what it reveals.</div>
+      <div class="card-excerpt">GPT-4 scores 27%. GPT-5 scores 57%. Progress is real — but the gaps it exposes are just as interesting as the gains.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-agi-verified/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">GPT-4.5 was judged more human than actual humans. And most researchers still said AGI wasn&#39;t close.</div>
+      <div class="card-excerpt">In March 2025, a model passed the Turing Test. 76% of researchers still believed scaling wouldn&#39;t get us to AGI. The cognitive dissonance is remarkable.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-ai-coordination-curse/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The coordination curse — why AI teams get worse, not better</div>
+      <div class="card-excerpt">Human collaboration is 1+1=3. AI agent collaboration is currently 1+1 is less than 1. Understanding why is more important than pretending the problem doesn&#39;t exist.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-ai-evolution-bottlenecks/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The bottleneck theory of AI — why every breakthrough follows the same pattern</div>
+      <div class="card-excerpt">Every major AI leap responds to a specific constraint that got unlocked. Understanding the pattern helps you see what&#39;s coming next.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-ai-history/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">A complete history of AI — from logic machines to the GPT revolution</div>
+      <div class="card-excerpt">Understanding where AI has been is the best way to reason about where it&#39;s going. The cycles of enthusiasm, winter, and revival follow a surprisingly consistent pattern.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-autonomous-edge/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">A 397 billion parameter model on a consumer laptop — the memory wall has been broken</div>
+      <div class="card-excerpt">By treating SSD flash as extended DRAM and combining it with autonomous self-improving pipelines, researchers ran a frontier-scale model on consumer hardware at 5.5 tokens per second.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-autonomous-harnesses/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Two failure modes that break every AI agent — and how to fix them</div>
+      <div class="card-excerpt">Context Anxiety and Self-Evaluation Leniency appear so consistently across AI agent deployments that they deserve names. The fix requires separating Generator and Evaluator agents.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-claude-mythos/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Anthropic built their most powerful AI — then decided not to release it</div>
+      <div class="card-excerpt">Claude Mythos Preview showed such a capability leap that Anthropic quietly decided the world wasn&#39;t ready. This is what responsible AI governance actually looks like in practice.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-context-engineering/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Context engineering — the skill that actually makes AI work</div>
+      <div class="card-excerpt">Most AI failures aren&#39;t model failures. They&#39;re context failures — the information supply chain is broken. Here&#39;s the three-part framework that changes how you build with AI.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-cooperbench/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">I thought more AI agents meant better results. The research says otherwise.</div>
+      <div class="card-excerpt">CooperBench ran 600+ collaborative AI coding tasks. State-of-the-art agents working together performed 30% worse than working alone. The curse of coordination is real.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-deepmind-agi-strategy/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">DeepMind&#39;s AGI bet — what it means to go all-in on general intelligence</div>
+      <div class="card-excerpt">How should a company balance exploiting current AI models versus investing in the paradigms that might actually reach AGI? DeepMind&#39;s strategy is instructive.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-deepseek-v4-blueprint/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The architecture of 1-million-token AI — a DeepSeek V4 deep dive</div>
+      <div class="card-excerpt">V4 isn&#39;t just incrementally better than V3. It&#39;s a ground-up reconstruction aimed at one specific goal — making 1-million-token context commercially viable.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-deepseek-v4/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">DeepSeek V4 — 1 million tokens at 10% of the cost</div>
+      <div class="card-excerpt">V4 supports a 1-million-token context window with dramatically less memory than its predecessor. The architectural innovations behind this efficiency are worth understanding.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-digital-biome/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">March 7, 2026 — the day a virtual fly changed the conversation</div>
+      <div class="card-excerpt">Eon Systems released a 60-second video of a virtual fruit fly navigating, foraging, and grooming. No code. No scripts. No training. A biological brain driving a digital shell.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-digital-wetware/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Zero-shot wetware — what happens when you boot a biological brain in silicon</div>
+      <div class="card-excerpt">Map the exact synaptic topology. Run electricity through it. Watch behaviour emerge — with no training data, no scripts, no reinforcement learning. This is a genuinely new paradigm.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-drosophila-brain/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The first complete brain simulation — 125,000 neurons, 50 million synapses</div>
+      <div class="card-excerpt">A leaky integrate-and-fire model of the entire Drosophila brain predicts which neurons drive feeding and grooming — then validates the predictions experimentally.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-engram-paper/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">DeepSeek&#39;s Engram — the architecture that changes how LLMs remember</div>
+      <div class="card-excerpt">Current LLMs waste early-layer depth computing things that should just be looked up. Engram fixes this — and the performance gains are bigger than expected.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-engram-paradigm/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">The Engram Paradigm — why current LLMs waste their own intelligence</div>
+      <div class="card-excerpt">Language has two kinds of content. Forcing neural networks to handle both with the same mechanism is inefficient. The Engram Paradigm makes this case more clearly than any paper I&#39;ve read.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-google-prompting/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Google&#39;s prompting framework — from a single instruction to autonomous agents</div>
+      <div class="card-excerpt">Google&#39;s distilled prompting masterclass reveals a clear progression that mirrors the shift from chatbot to agentic AI. The same core principles apply at every level.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-intelligence-explosion/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Are we at the intelligence explosion? What the inflection point actually means</div>
+      <div class="card-excerpt">The intelligence explosion hypothesis has moved from theoretical concern to active research programme. Here&#39;s what it actually means and why 2026 feels different.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-intelligence-staircase/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Intelligence is not a volume knob — a 10-tier framework for thinking about AI</div>
+      <div class="card-excerpt">We treat intelligence as a single dimension from 0 to 100. The research suggests it&#39;s a nested hierarchy — and conflating the levels is making our AI debates useless.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-llm-in-flash/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Apple&#39;s breakthrough — running large language models 20x faster from flash memory</div>
+      <div class="card-excerpt">The memory wall — the gap between model size and available DRAM — has been a hard constraint on AI deployment. Apple researchers found a way around it.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-nested-learning/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Nested Learning — a new theory of how AI actually learns</div>
+      <div class="card-excerpt">Google Research proposes that deep learning is really a sequence of nested optimisation problems. It reframes in-context learning in a way that actually makes intuitive sense.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-neuromechfly/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">What a fruit fly&#39;s brain taught researchers about building better AI</div>
+      <div class="card-excerpt">NeuroMechFly v2 simulates a complete Drosophila nervous system and uses it to study how brains and bodies work together. The implications for AI are deeper than they first appear.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-openclaw/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">OpenClaw — the autonomous AI operating system that goes beyond chatbots</div>
+      <div class="card-excerpt">While everyone builds chatbots, OpenClaw is building the architecture for AI that wakes up, checks your channels, manages your pipelines, and acts — without being asked.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-orbital-computing/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Why the future of AI compute might be in space</div>
+      <div class="card-excerpt">Terrestrial data centres are hitting thermal, water, and energy ceilings. Space offers infinite solar power, near-absolute-zero cooling, and vacuum-speed laser communication.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-robotics-revolution/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Embodied AI&#39;s GPT-3 moment is coming. Open source will be there first.</div>
+      <div class="card-excerpt">OpenVLA, a 7B open-source model, beat a 55B closed-source model by 16.5% across 29 robotic tasks. The ecosystem war for embodied AI is already underway.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-strategic-chaos/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Strategic chaos — how adversarial actors could destabilise AI agent ecosystems</div>
+      <div class="card-excerpt">The most dangerous AI agent threat isn&#39;t the dramatic failure that crashes a system. It&#39;s the subtle failure that looks correct while systematically producing harm.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-system-2/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">System 2 AI — we&#39;ve moved from prediction to deliberation</div>
+      <div class="card-excerpt">The shift from next-token prediction to test-time search and verification is as significant as the shift from rule-based AI to neural networks.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+    <a class="card" href="/posts/research/2026-06-05-world-models/">
+      <div class="card-cat">Research</div>
+      <div class="card-title">Why LLMs are stuck — the case for world models</div>
+      <div class="card-excerpt">The Moravec Paradox explains why AI can pass the bar exam but fail at basic physical reasoning. The fix requires moving beyond statistical text correlation to grounded world models.</div>
+      <div class="card-footer">
+        <span class="card-date">June 5, 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+    
+  </div>
+  
+</div>
+
+
+<footer>
+  <div class="footer-name">Laura Nguyen</div>
+  <p>DBAI candidate · PolyU Hong Kong · Writing about AI, research & everything in between</p>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/lauranguyent/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://x.com/Lauranguyent" target="_blank" rel="noopener">X / Twitter</a>
+    <a href="mailto:laura@genaifund.ai">Email me</a>
+  </div>
+</footer>
+
+<script>
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on("init", user => {
+    if (!user) {
+      window.netlifyIdentity.on("login", () => document.location.href = "/admin/");
+    }
+  });
+}
+</script>
+</body>
+</html>
