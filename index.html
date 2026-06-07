@@ -52,6 +52,10 @@ section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
 .cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -204,10 +208,41 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   <br/>
 
   
+  <input class="section-search" id="about-search" type="search" placeholder="Search About Me posts" aria-label="Search About Me posts"/>
   
   <div class="cards cards-2">
 
-    <a class="card featured" href="/posts/journal/2026-06-05-studying-ai-with-ai/">
+    <a class="card featured" href="/posts/journal/2026-06-07-dangerous-word-interesting/" data-about-search="The most dangerous word in innovation is &quot;interesting&quot; The dangerous projects are the ones everyone finds &quot;interesting&quot; — everyone nods, everyone smiles, and then absolutely nothing happens. posts #Innovation #Startups #EnterpriseInnovation #LessonsLearned">
+      <div class="card-cat">Journal</div>
+      <div class="card-title">The most dangerous word in innovation is &quot;interesting&quot;</div>
+      <div class="card-excerpt">The dangerous projects are the ones everyone finds &quot;interesting&quot; — everyone nods, everyone smiles, and then absolutely nothing happens.</div>
+      <div class="card-footer">
+        <span class="card-date">June 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+
+    <a class="card" href="/posts/journal/2026-06-07-curiosity-expensive-hobby/" data-about-search="Curiosity is a very expensive hobby It starts with one article and ends at midnight with three new questions, less certainty, and no improvement to my sleep schedule. posts #Learning #Curiosity #DBA #LifelongLearning">
+      <div class="card-cat">Journal</div>
+      <div class="card-title">Curiosity is a very expensive hobby</div>
+      <div class="card-excerpt">It starts with one article and ends at midnight with three new questions, less certainty, and no improvement to my sleep schedule.</div>
+      <div class="card-footer">
+        <span class="card-date">June 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+
+    <a class="card" href="/posts/journal/2026-06-07-ai-less-impressive/" data-about-search="AI has made me significantly less impressive AI has not removed the value of work. It has shifted the value from execution toward judgment, deciding what matters, and knowing what to do next. posts #AI #FutureOfWork #Leadership #DecisionMaking">
+      <div class="card-cat">Journal</div>
+      <div class="card-title">AI has made me significantly less impressive</div>
+      <div class="card-excerpt">AI has not removed the value of work. It has shifted the value from execution toward judgment, deciding what matters, and knowing what to do next.</div>
+      <div class="card-footer">
+        <span class="card-date">June 2026</span>
+        <span class="card-link">Read →</span>
+      </div>
+    </a>
+
+    <a class="card" href="/posts/journal/2026-06-05-studying-ai-with-ai/" data-about-search="What it actually feels like to study AI while using AI every day There&#39;s something strange about reading papers on AI autonomy in the morning and then asking an AI to help you summarise them in the afternoon. posts personal AI DBAI">
       <div class="card-cat">Journal</div>
       <div class="card-title">What it actually feels like to study AI while using AI every day</div>
       <div class="card-excerpt">There&#39;s something strange about reading papers on AI autonomy in the morning and then asking an AI to help you summarise them in the afternoon.</div>
@@ -217,17 +252,25 @@ footer p{font-size:.82rem;margin-bottom:1rem}
       </div>
     </a>
     
-    <a class="card" href="/posts/journal/2026-06-05-why-i-did-a-dbai/">
-      <div class="card-cat">Journal</div>
-      <div class="card-title">Why I decided to do a DBAI at 30-something</div>
-      <div class="card-excerpt">It wasn&#39;t the obvious choice. Here&#39;s the honest version of how I ended up here — and what I wish someone had told me before I started.</div>
-      <div class="card-footer">
-        <span class="card-date">June 5, 2026</span>
-        <span class="card-link">Read →</span>
-      </div>
-    </a>
-    
   </div>
+  <div class="search-empty" id="about-search-empty">No matching About Me posts.</div>
+  <script>
+  (() => {
+    const input = document.getElementById("about-search");
+    const cards = [...document.querySelectorAll("[data-about-search]")];
+    const empty = document.getElementById("about-search-empty");
+    input.addEventListener("input", () => {
+      const query = input.value.trim().toLowerCase();
+      let visible = 0;
+      cards.forEach(card => {
+        const match = card.dataset.aboutSearch.toLowerCase().includes(query);
+        card.style.display = match ? "" : "none";
+        if (match) visible++;
+      });
+      empty.style.display = visible ? "none" : "block";
+    });
+  })();
+  </script>
   
 </section>
 

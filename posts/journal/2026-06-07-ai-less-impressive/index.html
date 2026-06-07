@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>About Me / Journal — Laura Nguyen</title>
+<title>AI has made me significantly less impressive — Laura Nguyen</title>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -45,13 +45,17 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
 .cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -166,97 +170,45 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   </ul>
 </nav>
 
-<div class="cat-header">
-  <h1>About Me <span>/ Journal</span></h1>
-  <p>Random thoughts on the journey — unfiltered, honest, and usually written with coffee in hand.</p>
-</div>
-<div class="cat-grid">
-  
-  
-  <div class="cards cards-2">
+<div class="post-container">
+  <a class="post-back" href="/">← Back to all posts</a>
 
-    <a class="card featured" href="/posts/journal/2026-06-07-dangerous-word-interesting/">
-      <div class="card-cat">Journal</div>
-      <div class="card-title">The most dangerous word in innovation is &quot;interesting&quot;</div>
-      <div class="card-excerpt">The dangerous projects are the ones everyone finds &quot;interesting&quot; — everyone nods, everyone smiles, and then absolutely nothing happens.</div>
-      <div class="card-footer">
-        <span class="card-date">June 2026</span>
-        <span class="card-link">Read →</span>
-      </div>
-    </a>
 
-    <a class="card" href="/posts/journal/2026-06-07-curiosity-expensive-hobby/">
-      <div class="card-cat">Journal</div>
-      <div class="card-title">Curiosity is a very expensive hobby</div>
-      <div class="card-excerpt">It starts with one article and ends at midnight with three new questions, less certainty, and no improvement to my sleep schedule.</div>
-      <div class="card-footer">
-        <span class="card-date">June 2026</span>
-        <span class="card-link">Read →</span>
-      </div>
-    </a>
 
-    <a class="card" href="/posts/journal/2026-06-07-ai-less-impressive/">
-      <div class="card-cat">Journal</div>
-      <div class="card-title">AI has made me significantly less impressive</div>
-      <div class="card-excerpt">AI has not removed the value of work. It has shifted the value from execution toward judgment, deciding what matters, and knowing what to do next.</div>
-      <div class="card-footer">
-        <span class="card-date">June 2026</span>
-        <span class="card-link">Read →</span>
-      </div>
-    </a>
-    
-    <a class="card" href="/posts/journal/2026-06-05-studying-ai-with-ai/">
-      <div class="card-cat">Journal</div>
-      <div class="card-title">What it actually feels like to study AI while using AI every day</div>
-      <div class="card-excerpt">There&#39;s something strange about reading papers on AI autonomy in the morning and then asking an AI to help you summarise them in the afternoon.</div>
-      <div class="card-footer">
-        <span class="card-date">June 5, 2026</span>
-        <span class="card-link">Read →</span>
-      </div>
-    </a>
-    
-    <a class="card" href="/posts/journal/2026-06-05-why-i-did-a-dbai/">
-      <div class="card-cat">Journal</div>
-      <div class="card-title">Why I decided to do a DBAI at 30-something</div>
-      <div class="card-excerpt">It wasn&#39;t the obvious choice. Here&#39;s the honest version of how I ended up here — and what I wish someone had told me before I started.</div>
-      <div class="card-footer">
-        <span class="card-date">June 5, 2026</span>
-        <span class="card-link">Read →</span>
-      </div>
-    </a>
-    
-    <a class="card" href="/posts/journal/2026-06-04-what-i-do/">
-      <div class="card-cat">Journal</div>
-      <div class="card-title">What I actually do — and why AI keeps showing up in the answer</div>
-      <div class="card-excerpt">People ask me what I do and I always stumble a little. The honest answer is that AI has quietly become the thread running through everything.</div>
-      <div class="card-footer">
-        <span class="card-date">June 4, 2026</span>
-        <span class="card-link">Read →</span>
-      </div>
-    </a>
-    
-    <a class="card" href="/posts/journal/2026-06-03-why-responsible-ai/">
-      <div class="card-cat">Journal</div>
-      <div class="card-title">Why Responsible AI isn&#39;t just a compliance topic — it&#39;s the whole game</div>
-      <div class="card-excerpt">I didn&#39;t start out caring about AI ethics. I got there the practical way — by watching things go wrong and realising there was no framework to catch them.</div>
-      <div class="card-footer">
-        <span class="card-date">June 3, 2026</span>
-        <span class="card-link">Read →</span>
-      </div>
-    </a>
-    
-    <a class="card" href="/posts/journal/2026-06-02-first-semester/">
-      <div class="card-cat">Journal</div>
-      <div class="card-title">What my first semester studying Transformative AI actually felt like</div>
-      <div class="card-excerpt">I expected to feel more on top of things by now. Instead I feel like someone handed me a better map of a territory I thought I already knew.</div>
-      <div class="card-footer">
-        <span class="card-date">June 2, 2026</span>
-        <span class="card-link">Read →</span>
-      </div>
-    </a>
-    
+
+
+  <div class="post-cat-badge">Journal</div>
+  <h1 class="post-title-main">AI has made me significantly less impressive</h1>
+  <div class="post-meta">June 2026</div>
+
+  <div class="post-body">
+    <p>AI has made me significantly less impressive. A few years ago, if I produced a 20-page report overnight, people would probably think I was hardworking, efficient, maybe even a little bit smart. Nowadays, if I do the same thing, the first question is usually: “Which AI tool did you use?” 😭 And honestly, they’re not wrong. The interesting thing is that AI hasn’t really removed the value of work. It has simply shifted where the value sits. Writing a report, creating a proposal, summarising research, preparing slides — all of these things are becoming easier and faster. What hasn’t become easier is deciding what matters. The more I work with enterprises, startups, and government organisations, the more I realise that most people aren’t suffering from a lack of information. If anything, they have too much information. The challenge is figuring out which pieces matter, what questions to ask, and what actions to take afterwards. In a strange way, AI has made thinking more valuable. Execution used to be the bottleneck. Increasingly, judgment is becoming the bottleneck. Which is slightly unfortunate because thinking is the hard part 😆 AI can help me write a report. It still hasn’t figured out how to align stakeholders, survive office politics, or explain why a project is three weeks behind schedule. At least not yet.</p>
+
   </div>
-  
+
+
+  <div class="post-tags">
+
+
+
+
+    <span class="post-tag">#AI</span>
+
+
+
+    <span class="post-tag">#FutureOfWork</span>
+
+
+
+    <span class="post-tag">#Leadership</span>
+
+
+
+    <span class="post-tag">#DecisionMaking</span>
+
+
+  </div>
+
 </div>
 
 
