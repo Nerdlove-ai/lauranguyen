@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -177,13 +183,38 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
   <div class="post-body">
     <p><em>Source: Shanthikumar &amp; Yoo (2026) — “Beyond Automation: AI and the Human Value of Sell-Side Analysts”</em></p>
-<p>The question of what happens to professional roles when AI automates part of their work is usually posed as a replacement question. This paper reframes it as a reallocation question — and the reallocation finding is more interesting than a simple displacement story.</p>
-<p>The researchers study investment bank AI investments and their effect on sell-side analyst output. The result is not analyst displacement. It’s analyst enhancement — but with a specific structure.</p>
-<p>AI investment leads to higher-quality earnings forecasts and more timely forecasts following 10-K filings. The improvement is particularly strong after the implementation of iXBRL, which made filings more machine-readable, suggesting that the AI gains come from processing structured, publicly available information more efficiently. AI is handling the routine data extraction and synthesis that analysts previously did manually.</p>
-<p>Here’s where it gets interesting. The time freed by automation doesn’t sit idle — it gets reallocated to private information acquisition. Analysts at AI-invested banks issue bolder earnings forecasts (which implies they have more private information to back up non-consensus calls). They expand coverage to new firms and industries. They participate more actively in earnings conference calls and engage in more strategic behaviour that facilitates management access.</p>
-<p>The net picture: AI does the public-information legwork, and analysts use the freed capacity to do the higher-value private-information work that AI can’t do. The human comparative advantage — relationship building, management access, industry intuition, the judgment required to identify which private signals matter — is preserved and in some ways amplified because the analyst can now spend more time on it.</p>
-<p>The additional evidence from Morgan Stanley’s AskResearchGPT rollout is consistent with this pattern. An in-house generative AI designed for research produces the same qualitative effects: better public-information processing, more capacity for private-information work.</p>
-<p>This is the framework I’d use to think about AI in most professional service contexts. The question isn’t “will AI replace this job?” but “which parts of this job does AI do better, and does freeing up human capacity for the remaining parts create more or less value overall?” In this case: more.</p>
+<p>Every AI conversation eventually becomes a job conversation.</p>
+<p>Will AI replace analysts?</p>
+<p>Will it replace consultants?</p>
+<p>Will it replace the poor junior person who just learned how to use Excel without crying?</p>
+<p>This paper is useful because it does not answer that question in the usual dramatic way.</p>
+<p>It does not say, “AI destroys the analyst.”</p>
+<p>It also does not say, “AI magically makes everyone brilliant.”</p>
+<p>The finding is more interesting than that.</p>
+<p>The researchers looked at investment banks that invested in AI and studied what happened to sell-side analysts. These are the people who read company filings, build forecasts, follow management, join earnings calls, and somehow turn a mountain of information into a view on a company.</p>
+<p>A lot of that work is valuable.</p>
+<p>A lot of it is also extremely boring.</p>
+<p>Public filings. 10-Ks. Structured data. Extraction. Summaries. Repetitive analysis. The kind of work that makes you question your life choices at 11:47 p.m.</p>
+<p>AI helped most with that part.</p>
+<p>After banks invested in AI, analysts produced better and more timely earnings forecasts, especially after iXBRL made filings more machine-readable. That suggests AI was not replacing the analyst’s judgment. It was speeding up the public-information processing that analysts used to do manually.</p>
+<p>And here is the part I liked.</p>
+<p>The saved time did not just disappear into the calendar, although I personally would have accepted a nap.</p>
+<p>Analysts used the freed capacity to do more human work.</p>
+<p>They issued bolder forecasts. They expanded coverage to new firms and industries. They participated more actively in earnings calls. They seemed to spend more time gathering private information and building access to management.</p>
+<p>In other words, AI handled more of the public-data legwork, and humans shifted toward the work that depends on relationships, context, judgment, and knowing which signal actually matters.</p>
+<p>That feels like a much better way to think about AI in professional services.</p>
+<p>The question is not simply, “Will AI replace this job?”</p>
+<p>The better question is: “Which parts of this job are actually the job?”</p>
+<p>If the job is copying numbers from filings, AI will probably do that faster.</p>
+<p>If the job is understanding what the numbers mean, deciding what matters, asking the uncomfortable question on the earnings call, or knowing when management is being just a little too optimistic, humans still have a role.</p>
+<p>Maybe a more important one.</p>
+<p>The Morgan Stanley AskResearchGPT example in the paper points in the same direction. An internal research AI helped with public information processing, but the value came from giving analysts more room to do the work AI could not easily do.</p>
+<p>That is the version of AI productivity I find most believable.</p>
+<p>Not “replace everyone.”</p>
+<p>Not “nothing changes.”</p>
+<p>More like: AI eats the routine layer, and then we discover whether the human layer above it is actually good.</p>
+<p>Which is exciting.</p>
+<p>Also slightly terrifying, because it means we can no longer hide behind the spreadsheet.</p>
 
   </div>
 

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- 70 research posts -->
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -46,13 +45,17 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
 .cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -199,7 +202,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
     <a class="card" href="/posts/research/2026-06-06-ai-frees-analysts/">
       <div class="card-cat">Research</div>
       <div class="card-title">When AI handles the routine work, analysts shift toward the work that actually matters</div>
-      <div class="card-excerpt">Investment bank AI investments led to better forecasts and broader coverage — not by replacing analysts, but by freeing them to focus on private information rather than public data processing.</div>
+      <div class="card-excerpt">AI did not make analysts disappear. It made the boring public-data work faster, which gave humans more room to do the messy relationship and judgment work.</div>
       <div class="card-footer">
         <span class="card-date">June 6, 2026</span>
         <span class="card-link">Read →</span>
@@ -209,7 +212,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
     <a class="card" href="/posts/research/2026-06-06-ai-in-academic-research/">
       <div class="card-cat">Research</div>
       <div class="card-title">What happens when AI writes accounting research — and when it hallucinates results</div>
-      <div class="card-excerpt">Researchers used AI to identify economic shocks, design studies, and write draft papers. For some tasks it was genuinely useful. For others, it produced professional-looking papers with completely fabricated results.</div>
+      <div class="card-excerpt">AI can help researchers move faster, but it can also write a very confident academic paper around results that do not actually hold up. Helpful, yes. Trustworthy by default, absolutely not.</div>
       <div class="card-footer">
         <span class="card-date">June 6, 2026</span>
         <span class="card-link">Read →</span>
