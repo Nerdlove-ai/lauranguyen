@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -167,9 +173,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 <div class="post-container">
   <a class="post-back" href="/">← Back to all posts</a>
 
-  
-  
-  
+
+
+
 
   <div class="post-cat-badge">Research Journey</div>
   <h1 class="post-title-main">AI articles on Seeking Alpha — more coverage, but less insight per article</h1>
@@ -177,39 +183,36 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
   <div class="post-body">
     <p><em>Source: Bradshaw, Ma, Yost &amp; Zou (2026) — “Generative AI Use by Capital Market Information Intermediaries: Evidence from Seeking Alpha”</em></p>
-<p>After ChatGPT launched in November 2022, the share of AI-generated articles on Seeking Alpha — a platform where individual analysts publish financial research on specific companies — rose sharply to 13.5% of all articles. Then Seeking Alpha banned AI use in late 2023, treating it as equivalent to plagiarism. The ban gave researchers a before-and-after structure to study what AI actually did to the production and quality of financial analysis.</p>
-<p>The headline results contain a tension that’s worth thinking about carefully.</p>
-<p>On productivity: authors who adopted AI became significantly more productive. They published more articles and covered more companies than non-adopters. AI made it cheaper and faster to produce financial commentary, and authors responded by producing more.</p>
-<p>On informativeness: AI-generated articles were less informative than human-written articles. When measured by market reactions — trading volume and abnormal returns around article publication — AI articles elicited smaller responses. The market apparently recognised that these articles contained less new information.</p>
-<p>So you have a technology that increases quantity while reducing quality per unit. The question is what the net effect is. And here’s where the result gets interesting: overall market quality improved, in certain respects. Because AI-generated articles covered more firms — particularly smaller firms that previously received little analyst attention — there was a net gain in firm coverage. And broader coverage, even at lower quality per article, contributed to improved liquidity and faster price discovery for those firms.</p>
-<p>This is a coverage externality argument. Many smaller companies lack analyst coverage because covering them isn’t economically worth the research cost. If AI lowers that cost enough to make coverage profitable, the market as a whole becomes more efficient, even if each individual AI article is less informative than a hand-crafted human analysis.</p>
-<p>The implication for thinking about AI in financial services is important. The relevant question isn’t just “is this AI output better or worse than human output?” It’s “what does this AI output enable that wasn’t happening before?” In this case, the answer was coverage of firms that were previously flying below the analysis radar. That matters.</p>
+<p>At first this sounds like a technical finance question. Then you look closer and realise it is also a question about attention, incentives, and whether people are using information or just being impressed by it.</p>
+<p>After ChatGPT launched in November 2022, the share of AI-generated articles on Seeking Alpha — a platform where individual analysts publish financial research on specific companies — rose sharply to 13.5% of all articles. Then Seeking Alpha banned AI use in late 2023, treating it as equivalent to plagiarism. The ban gave researchers a before-and-after structure to study what AI actually did to the production and quality of financial analysis. The headline results contain a tension that’s worth thinking about carefully. On productivity: authors who adopted AI became significantly more productive. They published more articles and covered more companies than non-adopters. AI made it cheaper and faster to produce financial commentary, and authors responded by producing more. On informativeness: AI-generated articles were less informative than human-written articles. When measured by market reactions — trading volume and abnormal returns around article publication — AI articles elicited smaller responses. The market apparently recognised that these articles contained less new information. So you have a technology that increases quantity while reducing quality per unit. The question is what the net effect is.</p>
+<p>In plain English, that is why the result matters beyond the chart. It changes where people should look, what they should question, and which comfortable assumption probably needs to be retired.</p>
+<p>So I would not read this as a neat technology story. It is a messy information story. The tools improve, but people still have to decide what deserves attention. Annoying, but true.</p>
 
   </div>
 
-  
+
   <div class="post-tags">
-    
-    
-    
-    
+
+
+
+
     <span class="post-tag">AI in Business</span>
-    
-    
-    
+
+
+
     <span class="post-tag">Accounting &amp; Finance</span>
-    
-    
-    
+
+
+
     <span class="post-tag">research</span>
-    
-    
-    
+
+
+
     <span class="post-tag">capital markets</span>
-    
-    
+
+
   </div>
-  
+
 </div>
 
 

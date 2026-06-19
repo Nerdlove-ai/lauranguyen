@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -167,9 +173,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 <div class="post-container">
   <a class="post-back" href="/">← Back to all posts</a>
 
-  
-  
-  
+
+
+
 
   <div class="post-cat-badge">Research Journey</div>
   <h1 class="post-title-main">Machine learning is most useful for earnings forecasts precisely where human analysts are worst</h1>
@@ -177,34 +183,31 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
   <div class="post-body">
     <p><em>Source: Chan et al. (2026) — “Using Machine Learning to Predict Extreme Earnings Changes”</em></p>
-<p>There’s a question buried in the machine learning earnings prediction literature that this paper addresses directly: where exactly does ML add value over traditional models? The answer turns out to be highly concentrated — and it concentrates in exactly the place where the stakes are highest.</p>
-<p>The researchers show that predictive gains from machine learning are heavily concentrated in the tails of the earnings distribution. For moderate earnings changes — the kind that happen most of the time — ML models and traditional linear models perform similarly. The improvement from ML is marginal for the bulk of earnings observations. But for extreme earnings events — large jumps and crashes — the ML advantage is substantial.</p>
-<p>This makes sense when you think about what machine learning is technically doing. Linear models are well-suited for relationships that are approximately linear and gaussian. But extreme earnings changes tend to occur in non-linear regimes: they’re driven by specific business events, industry dynamics, and interactions between variables that don’t look like normal earnings variation. A Random Forest model that can capture complex non-linear relationships and interactions will do substantially better here.</p>
-<p>The hedge portfolio test confirms this economically: a portfolio based on the Random Forest’s predictions of extreme earnings events generates size-adjusted annual returns of around 12.84%. The model also systematically outperforms analysts for smaller firms and during periods of high economic uncertainty — both situations where analyst coverage is thinner and the non-linear dynamics are harder for humans to track.</p>
-<p>The practical implication for investment research: if you’re using ML to improve your research process, the question to ask isn’t “does this improve my average forecast?” It’s “does this improve my ability to anticipate tail events?” Those are different questions. A tool that does nothing for the average case but dramatically improves extreme case detection is extremely valuable.</p>
-<p>This also connects to a broader point about where AI adds most in professional contexts. The highest-value use cases are often not the routine tasks that were already being done reasonably well — they’re the hard, infrequent, high-consequence situations where human cognition has the most systematic blind spots.</p>
+<p>I like finance papers that accidentally become papers about human behaviour. This one does that. It looks like a study about data, markets, or disclosure, but underneath it is really about how people decide what to believe.</p>
+<p>There’s a question buried in the machine learning earnings prediction literature that this paper addresses directly: where exactly does ML add value over traditional models? The answer turns out to be highly concentrated — and it concentrates in exactly the place where the stakes are highest. The researchers show that predictive gains from machine learning are heavily concentrated in the tails of the earnings distribution. For moderate earnings changes — the kind that happen most of the time — ML models and traditional linear models perform similarly. The improvement from ML is marginal for the bulk of earnings observations. But for extreme earnings events — large jumps and crashes — the ML advantage is substantial. This makes sense when you think about what machine learning is technically doing. Linear models are well-suited for relationships that are approximately linear and gaussian. But extreme earnings changes tend to occur in non-linear regimes: they’re driven by specific business events, industry dynamics, and interactions between variables that don’t look like normal earnings variation. A Random Forest model that can capture complex non-linear relationships and interactions will do substantially better here. The hedge portfolio test confirms this economically: a portfolio based on the Random Forest’s predictions of extreme earnings events generates size-adjusted annual returns of around 12.84%.</p>
+<p>My takeaway: AI and data do not remove judgment from finance. They move judgment to the part where people decide what the signal means, whether it is trustworthy, and whether they are brave enough to act on it.</p>
 
   </div>
 
-  
+
   <div class="post-tags">
-    
-    
-    
-    
+
+
+
+
     <span class="post-tag">Accounting &amp; Finance</span>
-    
-    
-    
+
+
+
     <span class="post-tag">AI in Business</span>
-    
-    
-    
+
+
+
     <span class="post-tag">research</span>
-    
-    
+
+
   </div>
-  
+
 </div>
 
 

@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -167,9 +173,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 <div class="post-container">
   <a class="post-back" href="/">← Back to all posts</a>
 
-  
-  
-  
+
+
+
 
   <div class="post-cat-badge">Research Journey</div>
   <h1 class="post-title-main">Are we at the intelligence explosion? What the inflection point actually means</h1>
@@ -177,32 +183,31 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
   <div class="post-body">
     <p><em>Source: The Intelligence Explosion — recursive self-improvement analysis</em></p>
-<p>The intelligence explosion concept has a long history in AI safety thinking — the idea that once an AI system becomes capable enough to research and improve its own architecture, progress could accelerate from linear to near-vertical, compressing what might otherwise take decades into years or months. For most of AI’s history, this was treated as a distant theoretical concern. In 2026, it’s an active engineering question.</p>
-<p>The inflection point is defined as the moment when AI becomes capable of meaningfully contributing to AI research — not just as a tool to write code faster, but as an autonomous researcher that can formulate hypotheses, design experiments, and implement improvements to its own training process.</p>
-<p>The distinction between the Human Era and the Intelligence Explosion era is essentially the difference between AI progress being bottlenecked by human researchers versus AI progress being bottlenecked by compute and algorithms. In the Human Era, you need researchers to think of the next idea. In the Intelligence Explosion era, the AI generates the next idea, tests it, implements it, and moves on. The speed differential is enormous.</p>
-<p>What I find most useful about this frame: it shifts the relevant question from “how good is current AI?” to “when does AI become a meaningful contributor to its own development?” That’s a more tractable question, and the answer currently looks like “sooner than we thought.”</p>
+<p>I started this one expecting a technical improvement. The more interesting part is what the improvement reveals about where current AI systems are still awkward, expensive, or surprisingly fragile.</p>
+<p>The intelligence explosion concept has a long history in AI safety thinking — the idea that once an AI system becomes capable enough to research and improve its own architecture, progress could accelerate from linear to near-vertical, compressing what might otherwise take decades into years or months. For most of AI’s history, this was treated as a distant theoretical concern. In 2026, it’s an active engineering question. The inflection point is defined as the moment when AI becomes capable of meaningfully contributing to AI research — not just as a tool to write code faster, but as an autonomous researcher that can formulate hypotheses, design experiments, and implement improvements to its own training process. The distinction between the Human Era and the Intelligence Explosion era is essentially the difference between AI progress being bottlenecked by human researchers versus AI progress being bottlenecked by compute and algorithms. In the Human Era, you need researchers to think of the next idea. In the Intelligence Explosion era, the AI generates the next idea, tests it, implements it, and moves on. What I find most useful about this frame: it shifts the relevant question from “how good is current AI?” to “when does AI become a meaningful contributor to its own development?” That’s a more tractable question, and the answer currently looks like “sooner than we thought.”</p>
+<p>So the question is not whether the method sounds clever. Many things sound clever in AI. The question is whether it removes a real bottleneck once the system leaves the paper and meets the world.</p>
 
   </div>
 
-  
+
   <div class="post-tags">
-    
-    
-    
-    
+
+
+
+
     <span class="post-tag">AGI</span>
-    
-    
-    
+
+
+
     <span class="post-tag">intelligence explosion</span>
-    
-    
-    
+
+
+
     <span class="post-tag">safety</span>
-    
-    
+
+
   </div>
-  
+
 </div>
 
 

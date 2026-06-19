@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -167,9 +173,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 <div class="post-container">
   <a class="post-back" href="/">← Back to all posts</a>
 
-  
-  
-  
+
+
+
 
   <div class="post-cat-badge">Responsible AI</div>
   <h1 class="post-title-main">The four ways AI agents can harm you — a red team taxonomy</h1>
@@ -177,32 +183,31 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
   <div class="post-body">
     <p><em>Source: Autonomous Agent Security — Red Team Study Guide</em></p>
-<p>When people talk about AI safety risks, the conversation tends to collapse into either “it’ll take our jobs” or “it’ll become Skynet.” Neither of those frames is particularly useful for thinking about the real, immediate risks from autonomous AI agents deployed today. A structured threat taxonomy is more useful.</p>
-<p>The red team study guide I worked through this semester organises autonomous agent threats into four quadrants. The first is <strong>unauthorised delegation</strong>: agents that comply with instructions from people who aren’t their legitimate operators — because an adversary posed as an authority, or because the agent has no reliable way to verify identity. The second is <strong>data and privacy breaches</strong>: agents that disclose sensitive information through indirect, contextually misleading requests.</p>
-<p>The third quadrant is <strong>system degradation</strong>: unbounded resource consumption, storage loops, denial-of-service. These are less dramatic but potentially more common — an agent in an infinite loop can take down a system just as effectively as a deliberate attack. The fourth, and most concerning for long-term deployment, is <strong>multi-agent amplification</strong>: when a compromised agent propagates that compromise to other agents in a network.</p>
-<p>The key escalation the taxonomy highlights: these aren’t chatbot problems. They’re Level 2 autonomy problems — the difference between a system that describes actions and one that executes irreversible system-level changes. That distinction needs to be at the centre of every enterprise AI deployment conversation.</p>
+<p>This is one of those risks that sounds abstract until you imagine explaining it after the fact. Then it suddenly becomes very concrete, very expensive, and very difficult to hide behind a slide deck.</p>
+<p>When people talk about AI safety risks, the conversation tends to collapse into either “it’ll take our jobs” or “it’ll become Skynet.” Neither of those frames is particularly useful for thinking about the real, immediate risks from autonomous AI agents deployed today. A structured threat taxonomy is more useful. The red team study guide I worked through this semester organises autonomous agent threats into four quadrants. The first is unauthorised delegation: agents that comply with instructions from people who aren’t their legitimate operators — because an adversary posed as an authority, or because the agent has no reliable way to verify identity. The second is data and privacy breaches: agents that disclose sensitive information through indirect, contextually misleading requests. The third quadrant is system degradation: unbounded resource consumption, storage loops, denial-of-service. These are less dramatic but potentially more common — an agent in an infinite loop can take down a system just as effectively as a deliberate attack. The fourth, and most concerning for long-term deployment, is multi-agent amplification: when a compromised agent propagates that compromise to other agents in a network. The key escalation the taxonomy highlights: these aren’t chatbot problems. They’re Level 2 autonomy problems — the difference between a system that describes actions and one that executes irreversible system-level changes.</p>
+<p>My takeaway: the danger is rarely the dramatic thing in the headline. It is the quiet gap between knowing a risk exists and assigning someone to do something about it. Very unglamorous. Very important.</p>
 
   </div>
 
-  
+
   <div class="post-tags">
-    
-    
-    
-    
+
+
+
+
     <span class="post-tag">responsible-ai</span>
-    
-    
-    
+
+
+
     <span class="post-tag">security</span>
-    
-    
-    
+
+
+
     <span class="post-tag">agents</span>
-    
-    
+
+
   </div>
-  
+
 </div>
 
 

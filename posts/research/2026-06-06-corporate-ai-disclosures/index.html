@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -167,9 +173,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 <div class="post-container">
   <a class="post-back" href="/">← Back to all posts</a>
 
-  
-  
-  
+
+
+
 
   <div class="post-cat-badge">Research Journey</div>
   <h1 class="post-title-main">When companies talk about AI — signals or just noise?</h1>
@@ -177,43 +183,40 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
   <div class="post-body">
     <p><em>Source: Barrios, Campbell, Johnson &amp; Liu (2025) — “Signals or Smoke? The Determinants and Informativeness of Corporate AI Disclosures”</em></p>
-<p>Since ChatGPT launched in late 2022, the volume of AI-related language in corporate filings and earnings calls has exploded. Companies that had never mentioned artificial intelligence before suddenly discovered it was central to their strategy. This paper asks a pointed question: does any of that actually mean something?</p>
-<p>The distinction matters because corporate disclosure is a space where strategic language is common. Companies have incentives to signal capability, competitiveness, and innovation — regardless of whether their actual AI deployment justifies those claims. The researchers call this the “signals or smoke” question: are AI disclosures genuine signals of underlying activity, or are many of them performative?</p>
-<p>What the paper finds is that it’s both, but in systematically different ways depending on the context. AI disclosures that accompany actual capital allocation — investment in AI infrastructure, changes to workforce composition, partnership announcements — tend to be informative. They predict future performance and correlate with actual operational change. Disclosures that appear in isolation from operational changes tend to be less informative and more likely to reflect bandwagon effects.</p>
-<p>The researchers find that firm characteristics matter too. Larger firms, firms in tech-adjacent industries, and firms with more external financing needs are more likely to use AI language even when their actual AI investment is modest. This is exactly what you’d expect if there’s a reputational benefit to appearing AI-forward that isn’t fully tied to substance.</p>
-<p>One framework I find useful from this paper: think about AI disclosure as existing on a spectrum from capability-signalling (we have AI capacity) to activity-reporting (here is what our AI systems actually did this quarter). Most corporate AI language clusters toward the capability end. Genuine activity-reporting is rarer and more predictive.</p>
-<p>This connects to a broader challenge in evaluating enterprise AI. From outside a company, it is genuinely difficult to distinguish meaningful AI deployment from elaborate performance. The vocabulary is similar, the claims are hard to verify, and the incentives to overstate are clear. Research like this — using capital market reactions and operational outcomes as ground truth — is one of the few ways to cut through that.</p>
-<p>The practical takeaway: when evaluating a company’s AI strategy, look for disclosures that come with specifics — costs, timelines, workforce implications, customer applications. Generic claims about “leveraging AI” with no operational context should be discounted accordingly.</p>
+<p>The part that bothers me is how calm the language sounds. It makes the risk feel distant, when the real problem is already sitting inside today’s systems and decisions.</p>
+<p>Since ChatGPT launched in late 2022, the volume of AI-related language in corporate filings and earnings calls has exploded. Companies that had never mentioned artificial intelligence before suddenly discovered it was central to their strategy. This paper asks a pointed question: does any of that actually mean something? The distinction matters because corporate disclosure is a space where strategic language is common. Companies have incentives to signal capability, competitiveness, and innovation — regardless of whether their actual AI deployment justifies those claims. The researchers call this the “signals or smoke” question: are AI disclosures genuine signals of underlying activity, or are many of them performative? What the paper finds is that it’s both, but in systematically different ways depending on the context. AI disclosures that accompany actual capital allocation — investment in AI infrastructure, changes to workforce composition, partnership announcements — tend to be informative. They predict future performance and correlate with actual operational change. Disclosures that appear in isolation from operational changes tend to be less informative and more likely to reflect bandwagon effects. The researchers find that firm characteristics matter too.</p>
+<p>In plain English, that is why the result matters beyond the chart. It changes where people should look, what they should question, and which comfortable assumption probably needs to be retired.</p>
+<p>For leaders, the lesson is simple: if the risk timeline changes, the attention timeline has to change too. Waiting until everyone agrees it is urgent is usually how organisations arrive late.</p>
 
   </div>
 
-  
+
   <div class="post-tags">
-    
-    
-    
-    
+
+
+
+
     <span class="post-tag">AI in Business</span>
-    
-    
-    
+
+
+
     <span class="post-tag">Digital Transformation</span>
-    
-    
-    
+
+
+
     <span class="post-tag">research</span>
-    
-    
-    
+
+
+
     <span class="post-tag">Strategy</span>
-    
-    
-    
+
+
+
     <span class="post-tag">Governance</span>
-    
-    
+
+
   </div>
-  
+
 </div>
 
 

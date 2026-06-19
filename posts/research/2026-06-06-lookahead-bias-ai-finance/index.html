@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -167,9 +173,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 <div class="post-container">
   <a class="post-back" href="/">← Back to all posts</a>
 
-  
-  
-  
+
+
+
 
   <div class="post-cat-badge">Research Journey</div>
   <h1 class="post-title-main">The look-ahead bias problem — why AI financial predictions may be more impressive than they are</h1>
@@ -177,43 +183,39 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
   <div class="post-body">
     <p><em>Source: Levy (2024) — “Caution Ahead: Numerical Reasoning and Look-ahead Bias in AI Models”</em></p>
-<p>There’s a recurring pattern in financial AI research: a new model demonstrates extraordinary performance on a prediction task, the paper circulates widely, and practitioners get excited. Then more careful examination reveals that the performance partially reflects a flaw in the experimental design rather than genuine predictive ability.</p>
-<p>This paper is an important reality check on AI outperformance in accounting and finance. The author identifies two specific problems that affect a significant portion of published work.</p>
-<p>The first is poor numerical reasoning. LLMs, it turns out, are surprisingly bad at arithmetic and numerical reasoning in general. When financial prediction tasks require quantitative computation — not just pattern matching on qualitative text — LLMs make systematic errors. The implication is that applications which require actual numerical reasoning (not just retrieving or characterising patterns) should be treated with additional scepticism.</p>
-<p>The second, and more consequential, problem is look-ahead bias. Large language models are trained on data with a specific cutoff date, but that cutoff includes data about events that hadn’t yet been publicly known at earlier points in the training window. A model trained on data through December 2023 will have seen news, analysis, and commentary about events from 2020, 2021, and 2022 that was written after the fact — incorporating information that wouldn’t have been available to an investor in real time.</p>
-<p>This means that when researchers test LLM predictions against historical data, the model may be “predicting” outcomes it effectively saw during training. The outperformance isn’t prediction; it’s retrieval. And the way most research evaluates these models makes it difficult to distinguish the two.</p>
-<p>The paper doesn’t argue that AI has no value in financial applications — in fact, it closes with a discussion of areas where AI can genuinely advance financial research. But it does argue that extraordinary performance claims need extraordinary verification, particularly attention to whether the evaluation methodology correctly separates genuine out-of-sample prediction from look-ahead contamination.</p>
-<p>For anyone building or evaluating AI systems for financial decision-making: the training data timeline and evaluation methodology are not technical footnotes. They’re the central question.</p>
+<p>The part that bothers me is how calm the language sounds. It makes the risk feel distant, when the real problem is already sitting inside today’s systems and decisions.</p>
+<p>There’s a recurring pattern in financial AI research: a new model demonstrates extraordinary performance on a prediction task, the paper circulates widely, and practitioners get excited. Then more careful examination reveals that the performance partially reflects a flaw in the experimental design rather than genuine predictive ability. This paper is an important reality check on AI outperformance in accounting and finance. The author identifies two specific problems that affect a significant portion of published work. The first is poor numerical reasoning. LLMs, it turns out, are surprisingly bad at arithmetic and numerical reasoning in general. When financial prediction tasks require quantitative computation — not just pattern matching on qualitative text — LLMs make systematic errors. The implication is that applications which require actual numerical reasoning not just retrieving or characterising patterns should be treated with additional scepticism. The second, and more consequential, problem is look-ahead bias. Large language models are trained on data with a specific cutoff date, but that cutoff includes data about events that hadn’t yet been publicly known at earlier points in the training window. A model trained on data through December 2023 will have seen news, analysis, and commentary about events from 2020, 2021, and 2022 that was written after the fact — incorporating information that wouldn’t have been available to an investor in real time.</p>
+<p>For leaders, the lesson is simple: if the risk timeline changes, the attention timeline has to change too. Waiting until everyone agrees it is urgent is usually how organisations arrive late.</p>
 
   </div>
 
-  
+
   <div class="post-tags">
-    
-    
-    
-    
+
+
+
+
     <span class="post-tag">AI in Business</span>
-    
-    
-    
+
+
+
     <span class="post-tag">Accounting &amp; Finance</span>
-    
-    
-    
+
+
+
     <span class="post-tag">research</span>
-    
-    
-    
+
+
+
     <span class="post-tag">Risk Management</span>
-    
-    
-    
+
+
+
     <span class="post-tag">Responsible AI</span>
-    
-    
+
+
   </div>
-  
+
 </div>
 
 

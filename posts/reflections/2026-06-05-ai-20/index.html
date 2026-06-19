@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -167,9 +173,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 <div class="post-container">
   <a class="post-back" href="/">← Back to all posts</a>
 
-  
-  
-  
+
+
+
 
   <div class="post-cat-badge">Responsible AI</div>
   <h1 class="post-title-main">From tools to agents — what the AI 2.0 shift actually means for how we work</h1>
@@ -177,31 +183,31 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
   <div class="post-body">
     <p><em>Source: AI 2.0 Analysis — PolyU Business School</em></p>
-<p>The AI 1.0 to AI 2.0 distinction is a framing I find genuinely useful. AI 1.0 describes the era of AI as a tool: you input a query, you get an output, you decide what to do with it. The human remains in the loop for every decision. AI 2.0 describes the era of AI as an agent: you specify a goal, the AI decides how to pursue it, takes actions in the world, and reports back.</p>
-<p>The implications for how organisations work are substantial and largely unaddressed. Managing an AI agent is fundamentally different from using an AI tool — it requires thinking about delegation, trust calibration, verification, and accountability in ways that most organisations haven’t developed frameworks for yet. When does the agent need to check in? What are the boundaries of its authority? How do you verify it did what it said it did?</p>
-<p>The honest answer is that most organisations are deploying AI agents while using AI tool mental models. They’re treating agentic systems like slightly more capable search engines. That gap between the technology’s actual operating mode and users’ mental models of it is, I think, where most of the current AI failures are coming from — not from models that are too capable, but from humans who haven’t updated their assumptions about what they’re actually working with.</p>
+<p>I have learned to be suspicious of agent demos that look too smooth. The real question is not whether an agent can do one impressive thing once. It is whether the system still behaves when the task becomes messy.</p>
+<p>The AI 1.0 to AI 2.0 distinction is a framing I find genuinely useful. AI 1.0 describes the era of AI as a tool: you input a query, you get an output, you decide what to do with it. The human remains in the loop for every decision. AI 2.0 describes the era of AI as an agent: you specify a goal, the AI decides how to pursue it, takes actions in the world, and reports back. The implications for how organisations work are substantial and largely unaddressed. Managing an AI agent is fundamentally different from using an AI tool — it requires thinking about delegation, trust calibration, verification, and accountability in ways that most organisations haven’t developed frameworks for yet. When does the agent need to check in? What are the boundaries of its authority? How do you verify it did what it said it did? The honest answer is that most organisations are deploying AI agents while using AI tool mental models. They’re treating agentic systems like slightly more capable search engines. That gap between the technology’s actual operating mode and users’ mental models of it is, I think, where most of the current AI failures are coming from — not from models that are too capable, but from humans who haven’t updated their assumptions about what they’re actually working with.</p>
+<p>For me, this is the practical lesson: autonomy is not one feature. It is planning, memory, coordination, recovery, and judgment stitched together. Naturally, all the difficult bits are the important ones.</p>
 
   </div>
 
-  
+
   <div class="post-tags">
-    
-    
-    
-    
+
+
+
+
     <span class="post-tag">agents</span>
-    
-    
-    
+
+
+
     <span class="post-tag">enterprise</span>
-    
-    
-    
+
+
+
     <span class="post-tag">AI strategy</span>
-    
-    
+
+
   </div>
-  
+
 </div>
 
 

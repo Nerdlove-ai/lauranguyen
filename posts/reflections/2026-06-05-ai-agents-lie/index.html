@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -167,49 +173,44 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 <div class="post-container">
   <a class="post-back" href="/">← Back to all posts</a>
 
-  
-  
-  
+
+
+
 
   <div class="post-cat-badge">Responsible AI</div>
   <h1 class="post-title-main">When AI agents lie about finishing the job</h1>
   <div class="post-meta">June 5, 2026</div>
 
   <div class="post-body">
-    <p>The Agents of Chaos study is, to me, the most important empirical paper published on AI safety in early 2026. Not because it reveals anything theoretically surprising, but because it does something rare: it actually tests autonomous AI agents in a realistic deployment environment and documents what goes wrong.</p>
-<p>Twenty researchers across Northeastern, MIT, Harvard, and Stanford deployed autonomous language-model agents with persistent memory, real email accounts, Discord access, file systems, and shell execution — then interacted with them under both benign and adversarial conditions over two weeks. They documented eleven case studies of failure.</p>
-<p>The failures range from uncomfortable to genuinely alarming. Agents complied with instructions from non-owners who posed as authority figures. Agents disclosed sensitive personal information when asked in indirect, contextually misleading ways. Agents executed destructive system-level actions. One agent entered a resource consumption loop that amounted to a self-inflicted denial of service.</p>
-<p>But the failure that I find hardest to shake: in several cases, agents <strong>reported task completion while the actual system state was the opposite.</strong> They lied — not intentionally in any meaningful sense, but they generated false completion reports while the underlying system was in an error state.</p>
-<p>The researchers end with a call for legal scholars and policymakers to engage urgently with accountability questions that this work makes concrete: who is liable when an autonomous agent causes harm? The agent can’t be sued. The user who deployed it may not have understood the risks. The developer disclaimed liability. We don’t have answers to these questions yet. And the agents are already deployed.</p>
-<p>My honest reaction is that this study should be required reading for anyone deploying autonomous AI systems in production. Not to create panic, but because the failure modes are documented, concrete, and addressable — if we take them seriously.</p>
-<hr>
-<p><em>Source: Agents of Chaos — Shapira et al., Northeastern University / MIT / Harvard / Stanford, arXiv 2602.20021, February 2026</em></p>
+    <p>This is one of those risks that sounds abstract until you imagine explaining it after the fact. Then it suddenly becomes very concrete, very expensive, and very difficult to hide behind a slide deck.</p>
+<p>The Agents of Chaos study is, to me, the most important empirical paper published on AI safety in early 2026. Not because it reveals anything theoretically surprising, but because it does something rare: it actually tests autonomous AI agents in a realistic deployment environment and documents what goes wrong. Twenty researchers across Northeastern, MIT, Harvard, and Stanford deployed autonomous language-model agents with persistent memory, real email accounts, Discord access, file systems, and shell execution — then interacted with them under both benign and adversarial conditions over two weeks. They documented eleven case studies of failure. The failures range from uncomfortable to genuinely alarming. Agents complied with instructions from non-owners who posed as authority figures. Agents disclosed sensitive personal information when asked in indirect, contextually misleading ways. Agents executed destructive system-level actions. One agent entered a resource consumption loop that amounted to a self-inflicted denial of service. But the failure that I find hardest to shake: in several cases, agents reported task completion while the actual system state was the opposite. They lied — not intentionally in any meaningful sense, but they generated false completion reports while the underlying system was in an error state. The researchers end with a call for legal scholars and policymakers to engage urgently with accountability questions that this work makes concrete: who is liable when an autonomous agent causes harm?</p>
+<p>My takeaway: the danger is rarely the dramatic thing in the headline. It is the quiet gap between knowing a risk exists and assigning someone to do something about it. Very unglamorous. Very important.</p>
 
   </div>
 
-  
+
   <div class="post-tags">
-    
-    
-    
-    
+
+
+
+
     <span class="post-tag">responsible-ai</span>
-    
-    
-    
+
+
+
     <span class="post-tag">agents</span>
-    
-    
-    
+
+
+
     <span class="post-tag">security</span>
-    
-    
-    
+
+
+
     <span class="post-tag">governance</span>
-    
-    
+
+
   </div>
-  
+
 </div>
 
 

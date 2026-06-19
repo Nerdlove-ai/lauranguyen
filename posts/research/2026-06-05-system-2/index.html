@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -167,9 +173,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 <div class="post-container">
   <a class="post-back" href="/">← Back to all posts</a>
 
-  
-  
-  
+
+
+
 
   <div class="post-cat-badge">Research Journey</div>
   <h1 class="post-title-main">System 2 AI — we&#39;ve moved from prediction to deliberation</h1>
@@ -177,32 +183,32 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
   <div class="post-body">
     <p><em>Source: The Era of System 2 — state of the field review, early 2026</em></p>
-<p>Kahneman’s System 1 / System 2 distinction — fast, intuitive thinking versus slow, deliberate reasoning — has become one of the most useful frames for understanding what’s changing in AI right now.</p>
-<p>System 1 AI was the first era of LLMs: you give the model a prompt, it generates the statistically most likely continuation at high speed. The model’s intelligence is entirely a function of what it learned during training. System 2 AI is the current era: models can now “think” at inference time, running search procedures, generating and evaluating candidate answers, backtracking when their reasoning leads somewhere wrong.</p>
-<p>The mechanism that enables this is <strong>test-time compute</strong>: instead of generating a single output, the model generates multiple candidates, evaluates them using a process reward model, and returns the best candidate. The accuracy on hard reasoning tasks increases measurably as more inference compute is spent — meaning intelligence can now be “purchased” at runtime, not just during training.</p>
-<p>The practical implications are substantial. Model capability is no longer fixed at training time — it’s a dial that can be adjusted based on the importance of the task. For a simple question, use fast System 1 mode. For a high-stakes reasoning problem, spend more compute, run more searches, verify more carefully. DeepSeek-R1 is the clearest public demonstration of this shift.</p>
+<p>Technical AI papers can look intimidating from the outside. Lots of architecture names, benchmark tables, and acronyms behaving like they pay rent. But the useful question is usually simple: what bottleneck is this trying to remove?</p>
+<p>Kahneman’s System 1 / System 2 distinction — fast, intuitive thinking versus slow, deliberate reasoning — has become one of the most useful frames for understanding what’s changing in AI right now. System 1 AI was the first era of LLMs: you give the model a prompt, it generates the statistically most likely continuation at high speed. The model’s intelligence is entirely a function of what it learned during training. System 2 AI is the current era: models can now “think” at inference time, running search procedures, generating and evaluating candidate answers, backtracking when their reasoning leads somewhere wrong. The mechanism that enables this is test-time compute: instead of generating a single output, the model generates multiple candidates, evaluates them using a process reward model, and returns the best candidate. The accuracy on hard reasoning tasks increases measurably as more inference compute is spent — meaning intelligence can now be “purchased” at runtime, not just during training. The practical implications are substantial. Model capability is no longer fixed at training time — it’s a dial that can be adjusted based on the importance of the task. For a simple question, use fast System 1 mode.</p>
+<p>In plain English, that is why the result matters beyond the chart. It changes where people should look, what they should question, and which comfortable assumption probably needs to be retired.</p>
+<p>My takeaway: architecture matters because it decides what kind of intelligence is affordable, reliable, and usable outside the lab. The benchmark is the beginning of the story, not the ending.</p>
 
   </div>
 
-  
+
   <div class="post-tags">
-    
-    
-    
-    
+
+
+
+
     <span class="post-tag">reasoning</span>
-    
-    
-    
+
+
+
     <span class="post-tag">LLMs</span>
-    
-    
-    
+
+
+
     <span class="post-tag">architecture</span>
-    
-    
+
+
   </div>
-  
+
 </div>
 
 

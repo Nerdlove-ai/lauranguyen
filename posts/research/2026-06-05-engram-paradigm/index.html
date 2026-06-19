@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -167,9 +173,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 <div class="post-container">
   <a class="post-back" href="/">← Back to all posts</a>
 
-  
-  
-  
+
+
+
 
   <div class="post-cat-badge">Research Journey</div>
   <h1 class="post-title-main">The Engram Paradigm — why current LLMs waste their own intelligence</h1>
@@ -177,32 +183,32 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
   <div class="post-body">
     <p><em>Source: The Engram Paradigm — architectural breakdown</em></p>
-<p>The cleanest way I’ve found to explain the Engram insight without deep ML background is this analogy. Imagine a brilliant person who, every time someone mentions Paris in conversation, has to mentally reconstruct from scratch that Paris is the capital of France, is located in northern France, sits on the Seine river — rather than just knowing it. All that reconstruction takes cognitive effort that could be used for actual thinking. That’s roughly what current LLMs do with static factual knowledge.</p>
-<p>Language has an inherent dual nature: compositional reasoning (working out what to say, how to structure an argument, what follows from what) and static factual knowledge (Paris is the capital of France, the speed of light is approximately 3×10⁸ m/s). These are fundamentally different cognitive tasks, best handled by different mechanisms. Current Transformers use the same expensive neural computation for both.</p>
-<p>Mixture-of-Experts was the first architectural response to this — introducing sparsity in computation, activating only relevant expert networks. But MoE only addresses conditional computation, not conditional memory. Engram addresses the memory half: static knowledge is looked up from a table rather than reconstructed through computation, freeing the neural computation budget for what it’s actually good at — dynamic reasoning.</p>
-<p>The U-shaped scaling law the research reveals is conceptually elegant: there’s an optimal allocation between neural compute and static memory at each model size. At large scales, even simple lookup mechanisms dramatically improve performance when treated as a first-class architectural primitive rather than an afterthought. The result isn’t just a faster model. It’s a deeper one.</p>
+<p>I started this one expecting a technical improvement. The more interesting part is what the improvement reveals about where current AI systems are still awkward, expensive, or surprisingly fragile.</p>
+<p>The cleanest way I’ve found to explain the Engram insight without deep ML background is this analogy. Imagine a brilliant person who, every time someone mentions Paris in conversation, has to mentally reconstruct from scratch that Paris is the capital of France, is located in northern France, sits on the Seine river — rather than just knowing it. All that reconstruction takes cognitive effort that could be used for actual thinking. That’s roughly what current LLMs do with static factual knowledge. Language has an inherent dual nature: compositional reasoning working out what to say, how to structure an argument, what follows from what and static factual knowledge Paris is the capital of France, the speed of light is approximately 3×10⁸ m/s. These are fundamentally different cognitive tasks, best handled by different mechanisms. Current Transformers use the same expensive neural computation for both. Mixture-of-Experts was the first architectural response to this — introducing sparsity in computation, activating only relevant expert networks. But MoE only addresses conditional computation, not conditional memory. Engram addresses the memory half: static knowledge is looked up from a table rather than reconstructed through computation, freeing the neural computation budget for what it’s actually good at — dynamic reasoning.</p>
+<p>In plain English, that is why the result matters beyond the chart. It changes where people should look, what they should question, and which comfortable assumption probably needs to be retired.</p>
+<p>So the question is not whether the method sounds clever. Many things sound clever in AI. The question is whether it removes a real bottleneck once the system leaves the paper and meets the world.</p>
 
   </div>
 
-  
+
   <div class="post-tags">
-    
-    
-    
-    
+
+
+
+
     <span class="post-tag">architecture</span>
-    
-    
-    
+
+
+
     <span class="post-tag">LLMs</span>
-    
-    
-    
+
+
+
     <span class="post-tag">DeepSeek</span>
-    
-    
+
+
   </div>
-  
+
 </div>
 
 

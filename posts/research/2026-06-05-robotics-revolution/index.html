@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -167,9 +173,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 <div class="post-container">
   <a class="post-back" href="/">← Back to all posts</a>
 
-  
-  
-  
+
+
+
 
   <div class="post-cat-badge">Research Journey</div>
   <h1 class="post-title-main">Embodied AI&#39;s GPT-3 moment is coming. Open source will be there first.</h1>
@@ -177,32 +183,32 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
   <div class="post-body">
     <p><em>Source: The Open-Source Robotics Revolution — ecosystem analysis</em></p>
-<p>The Open-Source Robotics Revolution paper argues that embodied AI — AI that operates in physical environments using robotic bodies — is 1–2 years from an equivalent inflection point to what GPT-3 was for language. And it argues that open source will be positioned to define that inflection point.</p>
-<p>The inciting incident: in June 2024, OpenVLA — a 7 billion parameter open-source vision-language-action model — achieved a 16.5% higher success rate than a 55 billion parameter closed-source model across 29 diverse robotic manipulation tasks. A model 8× smaller, open, and freely available outperformed a proprietary giant.</p>
-<p>“Free is a weapon” is the strategic thesis. Highly-resourced entities release open-source robotics models not out of altruism but to set architectural standards, lock in hardware partnerships, and fuel proprietary data flywheels. Open models attract usage, usage generates diverse training data, diverse training data improves proprietary systems.</p>
-<p>The implication for anyone thinking about the robotics space: the ecosystem is being architected now, and the decisions being made about open standards and hardware interfaces will compound over the next decade. Understanding who is making those decisions, and why, is as important as understanding the technical capabilities.</p>
+<p>This is the kind of AI research that makes the field feel bigger than chatbots. It starts with brains, bodies, movement, or biology, and suddenly the question becomes: what if intelligence was never just about text?</p>
+<p>The Open-Source Robotics Revolution paper argues that embodied AI — AI that operates in physical environments using robotic bodies — is 1–2 years from an equivalent inflection point to what GPT-3 was for language. And it argues that open source will be positioned to define that inflection point. The inciting incident: in June 2024, OpenVLA — a 7 billion parameter open-source vision-language-action model — achieved a 16.5% higher success rate than a 55 billion parameter closed-source model across 29 diverse robotic manipulation tasks. A model 8× smaller, open, and freely available outperformed a proprietary giant. “Free is a weapon” is the strategic thesis. Highly-resourced entities release open-source robotics models not out of altruism but to set architectural standards, lock in hardware partnerships, and fuel proprietary data flywheels. Open models attract usage, usage generates diverse training data, diverse training data improves proprietary systems. The implication for anyone thinking about the robotics space: the ecosystem is being architected now, and the decisions being made about open standards and hardware interfaces will compound over the next decade. Understanding who is making those decisions, and why, is as important as understanding the technical capabilities.</p>
+<p>In plain English, that is why the result matters beyond the chart. It changes where people should look, what they should question, and which comfortable assumption probably needs to be retired.</p>
+<p>My takeaway: the more AI learns from bodies and biology, the less convincing it becomes to treat intelligence as pure text prediction. The world is messier than a prompt box, which is rude but useful.</p>
 
   </div>
 
-  
+
   <div class="post-tags">
-    
-    
-    
-    
+
+
+
+
     <span class="post-tag">robotics</span>
-    
-    
-    
+
+
+
     <span class="post-tag">open source</span>
-    
-    
-    
+
+
+
     <span class="post-tag">embodied AI</span>
-    
-    
+
+
   </div>
-  
+
 </div>
 
 

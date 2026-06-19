@@ -45,17 +45,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,239,.93);backdrop-
 .divider{max-width:860px;margin:0 auto 60px;padding:0 2rem}
 .divider hr{border:none;border-top:1.5px solid var(--cream2)}
 
-section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
+section{max-width:1200px;margin:0 auto 80px;padding:0 2rem}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
 .section-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700}
 .section-title .dot{color:var(--terra)}
 .section-subtitle{font-size:.875rem;color:var(--brown-lt);font-style:italic;margin-top:2px}
 .see-all{font-size:.85rem;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap}
 .see-all:hover{text-decoration:underline}
+.section-search{width:100%;margin-bottom:1.25rem;padding:.75rem 1rem;border:1px solid rgba(196,113,79,.2);
+  border-radius:10px;background:var(--white);color:var(--brown);font:inherit;outline:none}
+.section-search:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.1)}
+.search-empty{display:none;text-align:center;padding:2rem;color:var(--brown-lt);font-style:italic}
 
 .cards{display:grid;gap:1.25rem}
-.cards-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
-.cards-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cards-2,.cards-3{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--white);border-radius:var(--radius);padding:1.75rem;
   box-shadow:var(--shadow);border:1px solid rgba(196,113,79,.08);
   transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:.75rem;
@@ -110,7 +113,7 @@ section{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .cat-header h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:.5rem}
 .cat-header h1 span{color:var(--terra)}
 .cat-header p{color:var(--brown-md);font-size:1rem}
-.cat-grid{max-width:860px;margin:0 auto;padding:0 2rem 80px}
+.cat-grid{max-width:1200px;margin:0 auto;padding:0 2rem 80px}
 
 .newsletter-wrap{max-width:860px;margin:0 auto 80px;padding:0 2rem}
 .newsletter{background:linear-gradient(135deg,var(--terra),#A05030);border-radius:var(--radius);
@@ -133,6 +136,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--brown-lt);font-style:italic}
 
+@media(max-width:1024px){
+  .cards-2,.cards-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:640px){
   .hero{flex-direction:column;gap:1.5rem;padding:48px 1.25rem 40px}
   .hero-text h1{font-size:1.8rem}
@@ -140,7 +146,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
   .nav-links{gap:1.25rem}
   .nav-links a{font-size:.78rem}
   section{padding:0 1.25rem;margin-bottom:60px}
-  .cards-2,.cards-3{grid-template-columns:1fr}
+  .cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}
   .newsletter-wrap{padding:0 1.25rem}
   .newsletter-form{flex-direction:column}
   .about-card{flex-direction:column;gap:1rem}
@@ -167,9 +173,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 <div class="post-container">
   <a class="post-back" href="/">← Back to all posts</a>
 
-  
-  
-  
+
+
+
 
   <div class="post-cat-badge">Research Journey</div>
   <h1 class="post-title-main">What executives say that ChatGPT wouldn&#39;t — a new way to measure information in earnings calls</h1>
@@ -177,44 +183,39 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
   <div class="post-body">
     <p><em>Source: Bai, Boyson, Cao, Liu &amp; Wan (2025) — “Executives vs Chatbots: Unmasking Insights Through Human-AI Differences in Earnings Conference Q&amp;A”</em></p>
-<p>Earnings calls are one of the most scrutinised moments in a public company’s calendar. Analysts ask questions. Executives answer. Investors listen. The whole ritual is predicated on the idea that something meaningful is being communicated — that the answers reveal something the market didn’t already know.</p>
-<p>But how do you actually measure whether that’s true?</p>
-<p>This paper introduces a clever way of thinking about the problem. The researchers use large language models — specifically ChatGPT and Google Bard — to generate what an AI would say in response to each analyst question, given the same context available to the market. They then compare those AI-generated answers to what the executive actually said. The gap between the two — they call it HAID, for Human-AI Difference — becomes a measure of genuine information content.</p>
-<p>The intuition is worth sitting with for a moment. If an executive’s answer sounds exactly like what an AI trained on public data would produce, there’s probably nothing new there. The executive is just restating what the market already knows in different words. But if the answer diverges substantially from the AI’s prediction, that divergence likely reflects something the AI couldn’t have known — private information, nuance, judgment, or disclosure that isn’t already priced in.</p>
-<p>What I find interesting is how well this measure predicts things we actually care about. HAID turns out to be a strong predictor of post-call trading volume, abnormal returns, changes in stock liquidity, and analyst forecast accuracy. These are exactly the variables you’d expect to move if real information had been transmitted. The measure isn’t just theoretically elegant — it works.</p>
-<p>There’s a broader implication here about how we think about disclosure quality. Traditional approaches to measuring the informativeness of earnings calls rely on readability scores, sentiment analysis, or word counts of “positive” and “negative” language. These methods treat language at face value. HAID takes a different approach: it uses AI as a counterfactual. What would a sophisticated, context-aware information processor have produced? Whatever the executive adds beyond that is the actual signal.</p>
-<p>One thing this framework helps clarify is why not all earnings calls are equally informative, even when they cover the same topics. An executive who speaks in generalities, rehearsed talking points, and strategically vague language will produce answers close to what an LLM would generate. An executive who shares specific forward-looking detail, corrects analyst misunderstandings, or discloses something that wasn’t in the last 10-K will deviate from it substantially.</p>
-<p>The use of AI as a baseline for measuring human communication is a technique I expect to see in many more places. If you can define what “expected” information looks like, you can identify where the actual information is.</p>
+<p>At first this sounds like a technical finance question. Then you look closer and realise it is also a question about attention, incentives, and whether people are using information or just being impressed by it.</p>
+<p>Earnings calls are one of the most scrutinised moments in a public company’s calendar. The whole ritual is predicated on the idea that something meaningful is being communicated — that the answers reveal something the market didn’t already know. But how do you actually measure whether that’s true? This paper introduces a clever way of thinking about the problem. The researchers use large language models — specifically ChatGPT and Google Bard — to generate what an AI would say in response to each analyst question, given the same context available to the market. They then compare those AI-generated answers to what the executive actually said. The gap between the two — they call it HAID, for Human-AI Difference — becomes a measure of genuine information content. The intuition is worth sitting with for a moment. If an executive’s answer sounds exactly like what an AI trained on public data would produce, there’s probably nothing new there. The executive is just restating what the market already knows in different words. But if the answer diverges substantially from the AI’s prediction, that divergence likely reflects something the AI couldn’t have known — private information, nuance, judgment, or disclosure that isn’t already priced in.</p>
+<p>So I would not read this as a neat technology story. It is a messy information story. The tools improve, but people still have to decide what deserves attention. Annoying, but true.</p>
 
   </div>
 
-  
+
   <div class="post-tags">
-    
-    
-    
-    
+
+
+
+
     <span class="post-tag">AI in Business</span>
-    
-    
-    
+
+
+
     <span class="post-tag">Accounting &amp; Finance</span>
-    
-    
-    
+
+
+
     <span class="post-tag">research</span>
-    
-    
-    
+
+
+
     <span class="post-tag">NLP</span>
-    
-    
-    
+
+
+
     <span class="post-tag">capital markets</span>
-    
-    
+
+
   </div>
-  
+
 </div>
 
 
