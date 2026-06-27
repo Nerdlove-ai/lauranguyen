@@ -241,10 +241,9 @@ footer p{font-size:.82rem;margin-bottom:1rem}
 
 
 
-  <input class="section-search" id="about-search" type="search" placeholder="Search About Me posts" aria-label="Search About Me posts"/>
   <div class="cards cards-2">
 
-    <a class="card featured" href="/posts/journal/2026-06-27-ai-governance-adoption/" data-about-search="Will governance help AI adoption, or quietly stop it? I want to understand whether AI governance gives people confidence to move, or gives them one more reason to do nothing. posts #AIGovernance #AIAdoption #DBA #OrganisationalChange">
+    <a class="card featured" href="/posts/journal/2026-06-27-ai-governance-adoption/">
       <div class="card-cat">Journal</div>
       <div class="card-title">Will governance help AI adoption, or quietly stop it?</div>
       <div class="card-excerpt">I want to understand whether AI governance gives people confidence to move, or gives them one more reason to do nothing.</div>
@@ -254,7 +253,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
       </div>
     </a>
 
-    <a class="card" href="/posts/journal/2026-06-07-dangerous-word-interesting/" data-about-search="The most dangerous word in innovation is &quot;interesting&quot; The dangerous projects are the ones everyone finds &quot;interesting&quot; — everyone nods, everyone smiles, and then absolutely nothing happens. posts #Innovation #Startups #EnterpriseInnovation #LessonsLearned">
+    <a class="card" href="/posts/journal/2026-06-07-dangerous-word-interesting/">
       <div class="card-cat">Journal</div>
       <div class="card-title">The most dangerous word in innovation is &quot;interesting&quot;</div>
       <div class="card-excerpt">The dangerous projects are the ones everyone finds &quot;interesting&quot; — everyone nods, everyone smiles, and then absolutely nothing happens.</div>
@@ -264,7 +263,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
       </div>
     </a>
 
-    <a class="card" href="/posts/journal/2026-06-07-curiosity-expensive-hobby/" data-about-search="Curiosity is a very expensive hobby It starts with one article and ends at midnight with three new questions, less certainty, and no improvement to my sleep schedule. posts #Learning #Curiosity #DBA #LifelongLearning">
+    <a class="card" href="/posts/journal/2026-06-07-curiosity-expensive-hobby/">
       <div class="card-cat">Journal</div>
       <div class="card-title">Curiosity is a very expensive hobby</div>
       <div class="card-excerpt">It starts with one article and ends at midnight with three new questions, less certainty, and no improvement to my sleep schedule.</div>
@@ -274,7 +273,7 @@ footer p{font-size:.82rem;margin-bottom:1rem}
       </div>
     </a>
 
-    <a class="card" href="/posts/journal/2026-06-07-ai-less-impressive/" data-about-search="AI has made me significantly less impressive AI has not removed the value of work. It has shifted the value from execution toward judgment, deciding what matters, and knowing what to do next. posts #AI #FutureOfWork #Leadership #DecisionMaking">
+    <a class="card" href="/posts/journal/2026-06-07-ai-less-impressive/">
       <div class="card-cat">Journal</div>
       <div class="card-title">AI has made me significantly less impressive</div>
       <div class="card-excerpt">AI has not removed the value of work. It has shifted the value from execution toward judgment, deciding what matters, and knowing what to do next.</div>
@@ -285,24 +284,6 @@ footer p{font-size:.82rem;margin-bottom:1rem}
     </a>
 
   </div>
-  <div class="search-empty" id="about-search-empty">No matching About Me posts.</div>
-  <script>
-  (() => {
-    const input = document.getElementById("about-search");
-    const cards = [...document.querySelectorAll("[data-about-search]")];
-    const empty = document.getElementById("about-search-empty");
-    input.addEventListener("input", () => {
-      const query = input.value.trim().toLowerCase();
-      let visible = 0;
-      cards.forEach(card => {
-        const match = card.dataset.aboutSearch.toLowerCase().includes(query);
-        card.style.display = match ? "" : "none";
-        if (match) visible++;
-      });
-      empty.style.display = visible ? "none" : "block";
-    });
-  })();
-  </script>
 
 </section>
 
