@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Machine learning as a noise filter — what non-linear accounting relationships reveal — Laura Nguyen</title>
+<title>Search — Laura Nguyen</title>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -198,49 +198,169 @@ footer p{font-size:.82rem;margin-bottom:1rem}
     <li><a href="/#about">About</a></li>
     <li><a href="/research/" class="">Research</a></li>
     <li><a href="/reflections/" class="">Reflections</a></li>
-    <li><a href="/search/" class="">Search</a></li>
+    <li><a href="/search/" class="active">Search</a></li>
   </ul>
 </nav>
 
-<div class="post-container">
-  <a class="post-back" href="/">← Back to all posts</a>
 
-
-
-
-
-  <div class="post-cat-badge">Research Journey</div>
-  <h1 class="post-title-main">Machine learning as a noise filter — what non-linear accounting relationships reveal</h1>
-  <div class="post-meta">June 6, 2026</div>
-
-  <div class="post-body">
-    <p><em>Source: Bertomeu, Cheynel, Liao &amp; Milone (2024) — “Using Machine Learning to Measure Conservatism,” Management Science</em></p>
-<p>At first this sounds like a technical finance question. Then you look closer and realise it is also a question about attention, incentives, and whether people are using information or just being impressed by it.</p>
-<p>There’s a recurring tension in empirical accounting research between the clean theoretical models we write down and the messy reality of how firms actually behave. Linear regression models assume that accounting relationships — how earnings respond to returns, how accruals relate to cash flows — are approximately linear and stable. These assumptions are tractable and often produce publishable findings, but they import specification error that’s difficult to quantify. This paper, the published version of an earlier working paper on ML-based conservatism measurement, focuses on a specific mechanism: the role of non-linear relationships between observable firm characteristics and conservatism. The theoretical model of conservatism predicts that the same economic events should be recognised differently depending on firm-specific factors — industry, financial health, institutional ownership, reporting history. Linear models either ignore these interactions or handle them crudely with interaction terms. A neural network can learn them directly from data. The result of allowing these non-linearities: substantially cleaner measurement. The ML-based conservatism measure has better fit, fewer anomalous observations, and less temporal instability than conventional measures. More importantly, it gives a different picture of how conservatism has evolved over time. The paper’s framing of ML as a “noise filter” is the insight I find most transferable.</p>
-<p>So I would not read this as a neat technology story. It is a messy information story. The tools improve, but people still have to decide what deserves attention. Annoying, but true.</p>
-
-  </div>
-
-
-  <div class="post-tags">
-
-
-
-
-    <span class="post-tag">Accounting &amp; Finance</span>
-
-
-
-    <span class="post-tag">AI in Business</span>
-
-
-
-    <span class="post-tag">research</span>
-
-
-  </div>
-
+<div class="cat-header search-header">
+  <h1>Ask <span>the blog</span></h1>
+  <p>Search across Research, Reflections, and About Me posts. Try a question like “What did Laura write about AI trust?” or “show me posts about analysts.”</p>
 </div>
+
+<section class="chat-search" aria-label="Blog search">
+  <form class="chat-search-box" id="chat-search-form">
+    <label class="sr-only" for="chat-search-input">Search all articles</label>
+    <input id="chat-search-input" type="search" placeholder="Ask about any article..." autocomplete="off"/>
+    <button type="submit">Search</button>
+  </form>
+
+  <div class="chat-thread" id="chat-thread" aria-live="polite">
+    <div class="chat-message bot">
+      <div class="chat-bubble">
+        Ask me what you are looking for. I can search titles, excerpts, tags, and article text across the whole blog.
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const form = document.getElementById("chat-search-form");
+  const input = document.getElementById("chat-search-input");
+  const thread = document.getElementById("chat-thread");
+  let posts = [];
+
+  const categoryLabel = {
+    journal: "About Me",
+    research: "Research",
+    reflections: "Reflection"
+  };
+
+  const stopWords = new Set([
+    "a", "about", "all", "am", "an", "and", "any", "are", "article", "articles",
+    "at", "be", "blog", "can", "did", "do", "for", "from", "has", "have", "how",
+    "i", "in", "is", "it", "laura", "me", "my", "of", "on", "or", "post", "posts",
+    "show", "tell", "the", "to", "was", "what", "when", "where", "which", "who",
+    "why", "with", "write", "wrote", "you"
+  ]);
+
+  const normalize = value => String(value || "").toLowerCase();
+
+  const tokenize = query => normalize(query)
+    .replace(/[^a-z0-9\s-]/g, " ")
+    .split(/\s+/)
+    .map(word => word.trim())
+    .filter(word => word.length > 1 && !stopWords.has(word));
+
+  const escapeHtml = value => String(value || "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[char]));
+
+  const snippetFor = (post, terms) => {
+    const text = post.content || post.excerpt || "";
+    const lower = normalize(text);
+    const index = terms
+      .map(term => lower.indexOf(term))
+      .filter(position => position >= 0)
+      .sort((a, b) => a - b)[0] || 0;
+    const start = Math.max(0, index - 90);
+    const snippet = text.slice(start, start + 220).trim();
+    return `${start > 0 ? "... " : ""}${snippet}${start + 220 < text.length ? " ..." : ""}`;
+  };
+
+  const scorePost = (post, terms, query) => {
+    const title = normalize(post.title);
+    const excerpt = normalize(post.excerpt);
+    const tags = normalize((post.tags || []).join(" "));
+    const content = normalize(post.content);
+    const combined = `${title} ${excerpt} ${tags} ${content}`;
+    let score = 0;
+
+    if (title.includes(query)) score += 12;
+    if (excerpt.includes(query)) score += 6;
+    if (content.includes(query)) score += 4;
+
+    terms.forEach(term => {
+      if (title.includes(term)) score += 8;
+      if (tags.includes(term)) score += 5;
+      if (excerpt.includes(term)) score += 4;
+      if (content.includes(term)) score += 2;
+      const occurrences = combined.split(term).length - 1;
+      score += Math.min(occurrences, 4);
+    });
+
+    return score;
+  };
+
+  const addMessage = (kind, html) => {
+    const message = document.createElement("div");
+    message.className = `chat-message ${kind}`;
+    message.innerHTML = `<div class="chat-bubble">${html}</div>`;
+    thread.appendChild(message);
+    message.scrollIntoView({ behavior: "smooth", block: "end" });
+  };
+
+  const renderResults = (query) => {
+    const cleanQuery = query.trim();
+    if (!cleanQuery) return;
+
+    addMessage("user", escapeHtml(cleanQuery));
+
+    const terms = tokenize(cleanQuery);
+    if (!terms.length) {
+      addMessage("bot", "Try one or two specific words, like <strong>trust</strong>, <strong>analysts</strong>, <strong>quantum</strong>, or <strong>creativity</strong>.");
+      return;
+    }
+
+    const normalizedQuery = normalize(cleanQuery);
+    const results = posts
+      .map(post => ({ ...post, score: scorePost(post, terms, normalizedQuery) }))
+      .filter(post => post.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8);
+
+    if (!results.length) {
+      addMessage("bot", `I could not find a post for <strong>${escapeHtml(cleanQuery)}</strong>. Try a broader word, because sometimes the blog uses Laura-ish language instead of formal keywords.`);
+      return;
+    }
+
+    const intro = results.length === 1
+      ? "I found one article that looks relevant:"
+      : `I found ${results.length} articles that look relevant:`;
+
+    const cards = results.map(post => `
+      <a class="search-result" href="${post.url}">
+        <span class="search-result-cat">${categoryLabel[post.category] || post.category} · ${escapeHtml(post.date)}</span>
+        <strong>${escapeHtml(post.title)}</strong>
+        <span>${escapeHtml(snippetFor(post, terms))}</span>
+      </a>
+    `).join("");
+
+    addMessage("bot", `${intro}<div class="search-results">${cards}</div>`);
+  };
+
+  fetch("/search-index.json")
+    .then(response => response.json())
+    .then(data => {
+      posts = data;
+    })
+    .catch(() => {
+      addMessage("bot", "I could not load the search index. Please refresh the page and try again.");
+    });
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    const query = input.value;
+    input.value = "";
+    renderResults(query);
+  });
+})();
+</script>
 
 
 <footer>
