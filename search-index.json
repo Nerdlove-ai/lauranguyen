@@ -71,6 +71,16 @@
   },
 
   {
+    "title": "Will governance help AI adoption, or quietly stop it?",
+    "url": "/posts/journal/2026-06-27-ai-governance-adoption/",
+    "category": "journal",
+    "date": "June 2026",
+    "excerpt": "I want to understand whether AI governance gives people confidence to move, or gives them one more reason to do nothing.",
+    "tags": ["posts","#AIGovernance","#AIAdoption","#DBA","#OrganisationalChange"],
+    "content": "I keep coming back to one question: will a clear AI governance framework help people adopt AI, or will it make them more afraid to even try? This is one of the reasons I chose this research topic. Not because I enjoy governance documents. Nobody wakes up excited to read a 47-page policy unless something has gone slightly wrong in their life. But I do want to understand what actually drives AI adoption inside organisations. Do companies adopt AI because they genuinely want to become better? Because they want to look innovative? Because competitors are doing it? Because someone senior went to a conference, heard the word “agentic”, and came back with dangerous enthusiasm? Probably all of the above. But I am also interested in the opposite question: when people do not adopt AI, why not? Is it because they do not understand it, or because they understand just enough to be scared? Scared of making the wrong decision. Scared of losing their job. Scared of damaging their reputation. Scared that if the AI makes a mistake, everyone will ask why they approved it in the first place. And honestly, that fear makes sense. AI adoption is rarely just a technology issue. It is a people issue, a trust issue, and sometimes an office politics issue wearing a very serious suit. So maybe good governance is not supposed to slow people down. Maybe it is supposed to give people enough confidence to move. The real question is whether governance feels like a map or a warning sign. Because if people experience AI governance as protection, adoption may grow. But if they experience it as punishment waiting to happen, they may do the safest thing of all: nothing."
+  },
+
+  {
     "title": "Trusting an AI teammate depends on who else trusts it",
     "url": "/posts/research/2026-06-27-trusting-ai-teammates/",
     "category": "research",
