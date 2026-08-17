@@ -1,6 +1,16 @@
 [
 
   {
+    "title": "Hidden AI reasoning is not automatically private",
+    "url": "/posts/research/2026-08-17-stolen-reasoning-traces/",
+    "category": "research",
+    "date": "August 17, 2026",
+    "excerpt": "A new paper shows that encrypted reasoning traces can become a privacy and security problem when they move across sessions, users, and models.",
+    "tags": ["posts","AI Security","Reasoning Models","Privacy","Governance"],
+    "content": "Source: Panfilov et al. (2026) — “Stealing Reasoning Traces from Proprietary LLM APIs,” arXiv 2608.09867 I used to think hidden AI reasoning was hidden in a simple way. The model thinks. The user sees the answer. The messy internal reasoning stays somewhere safely behind the curtain. Very neat. Very comforting. Very likely to be more complicated. This paper looks at a strange weakness in how some reasoning-model APIs handle hidden chains of thought. Instead of storing the reasoning only on the server, providers may return it to the client as encrypted blocks that get passed back in later requests. The user cannot read them, which makes them feel private. But the paper argues that these blocks can be portable across sessions, users, and models. That is where the problem becomes less theoretical and more alarming. The authors show that weaker models in the same ecosystem can become the weak link. A protected frontier model may refuse to reveal its reasoning, but a cheaper or less protected sibling model may be tricked into decoding traces from the stronger model. In security terms, the castle has a very impressive front gate and a side door that did not get the memo. The privacy part worries me even more. The authors scraped public agent traces and found sensitive information hidden inside encrypted reasoning blocks, including personal information and credentials. The scary detail is not just that secrets appeared. It is that users may have cleaned the visible transcript and still left sensitive content trapped inside unreadable reasoning blocks. For companies, this is a governance lesson. Do not treat hidden reasoning as safe just because humans cannot inspect it. Do not publish raw agent logs. Do not assume encryption alone solves data leakage. An AI ecosystem is only as secure as its least protected component. My takeaway: hidden reasoning creates a new transparency problem. If a system uses my data to think, but I cannot see what it stored or how it influenced the next action, privacy becomes strangely theatrical. The data is hidden from me, but not necessarily safe from everyone else."
+  },
+
+  {
     "title": "People judge AI like they judge people",
     "url": "/posts/reflections/2026-07-26-people-judge-ai-like-people/",
     "category": "reflections",
