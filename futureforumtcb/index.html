@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TCB Emerging Technology Glossary | Laura Nguyen</title>
+  <meta name="description" content="Quick reference glossary for the Techcombank Key Talent emerging technology keynote.">
+  <link rel="canonical" href="https://lauranguyen.life/futureforumtcb/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lauranguyen.life/futureforumtcb/">
+  <meta property="og:title" content="TCB Emerging Technology Glossary">
+  <meta property="og:description" content="Quick reference glossary for the Techcombank Key Talent emerging technology keynote.">
+  <meta property="og:site_name" content="Laura Nguyen">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/futureforumtcb/styles.css">
+</head>
+<body>
+  <main class="tcb-glossary">
+    <header class="tcb-hero">
+      <div class="tcb-brandline">
+        <span class="tcb-spark" aria-hidden="true">✦</span>
+        <span>TECHCOMBANK KEY TALENT</span>
+      </div>
+      <p class="tcb-eyebrow">Emerging Technologies · Quick Reference</p>
+      <h1>Glossary</h1>
+      <p class="tcb-intro">Các thuật ngữ chính trong keynote — giải thích ngắn gọn, theo đúng ngữ cảnh của bài nói.</p>
+      <label class="tcb-search">
+        <span aria-hidden="true">⌕</span>
+        <input type="search" id="glossary-search" placeholder="Tìm AI Agent, tokenization, ROI…" aria-label="Tìm thuật ngữ" autocomplete="off">
+        <button class="tcb-clear" type="button" aria-label="Xóa tìm kiếm" hidden>×</button>
+      </label>
+    </header>
+
+    <section class="tcb-content" aria-labelledby="glossary-title">
+      <h2 id="glossary-title" class="tcb-sr-only">Danh sách thuật ngữ</h2>
+      <nav class="tcb-filters" aria-label="Nhóm thuật ngữ">
+        <button type="button" class="active" data-filter="Tất cả">Tất cả</button>
+        <button type="button" data-filter="Công nghệ">Công nghệ</button>
+        <button type="button" data-filter="Con người & tổ chức">Con người &amp; tổ chức</button>
+        <button type="button" data-filter="Triển khai & đo lường">Triển khai &amp; đo lường</button>
+      </nav>
+      <div class="tcb-resultline" aria-live="polite">
+        <span id="result-count">47 thuật ngữ</span>
+        <span>Chạm để xem giải thích</span>
+      </div>
+      <div class="tcb-terms" id="terms-list"></div>
+      <div class="tcb-empty" id="empty-state" hidden>
+        <b>Chưa tìm thấy thuật ngữ này.</b>
+        <span>Thử một từ ngắn hơn hoặc chọn “Tất cả”.</span>
+      </div>
+    </section>
+
+    <footer class="tcb-footer">
+      <p>Prepared for Techcombank Key Talent</p>
+      <p>Laura Nguyen · GenAI Fund</p>
+    </footer>
+  </main>
+  <script src="/futureforumtcb/script.js" defer></script>
+</body>
+</html>
