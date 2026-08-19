@@ -15,12 +15,13 @@ const TERMS = [
   { term: "Post-Quantum Cryptography (PQC)", vi: "Mật mã hậu lượng tử", category: "Công nghệ", meaning: "Các thuật toán mật mã được thiết kế để chống lại những cuộc tấn công có thể thực hiện bằng máy tính lượng tử trong tương lai.", keynote: "Chuẩn bị sớm vì việc thay đổi hạ tầng mật mã của một tổ chức lớn cần nhiều năm." },
   { term: "Blockchain", vi: "Chuỗi khối", category: "Công nghệ", meaning: "Sổ cái dùng chung, ghi lại giao dịch theo cách nhiều bên có thể kiểm chứng mà không phải phụ thuộc hoàn toàn vào một cơ sở dữ liệu trung tâm." },
   { term: "Public vs Permissioned Blockchain", vi: "Blockchain công khai và cấp quyền", category: "Công nghệ", meaning: "Blockchain công khai cho phép tham gia rộng rãi; blockchain cấp quyền giới hạn người có thể truy cập, xác thực hoặc ghi dữ liệu.", keynote: "Doanh nghiệp thường cân nhắc permissioned blockchain khi quyền truy cập và quản trị là yêu cầu trọng yếu." },
-  { term: "Cryptocurrency", vi: "Tiền mã hóa", category: "Công nghệ", meaning: "Tài sản số vận hành trên blockchain và có thể được dùng để trao đổi hoặc lưu trữ giá trị.", keynote: "Cryptocurrency là một ứng dụng; tokenization là cách biểu diễn tài sản hoặc quyền lợi trên hạ tầng số." },
+  { term: "Cryptocurrency", vi: "Tiền mã hóa", category: "Công nghệ", meaning: "Tài sản số vận hành trên blockchain và có thể được dùng để trao đổi hoặc lưu trữ giá trị.", keynote: "Cryptocurrency là một ứng dụng; tokenization là cách thể hiện tài sản hoặc quyền lợi trên hạ tầng số." },
   { term: "Legacy Rails", vi: "Hạ tầng thanh toán truyền thống", category: "Công nghệ", meaning: "Các hệ thống và mạng lưới thanh toán hiện hữu, thường qua nhiều bên trung gian, quy trình đối soát và thời gian xử lý khác nhau." },
   { term: "Stablecoin", vi: "Đồng tiền số neo giá", category: "Công nghệ", meaning: "Token số được thiết kế để duy trì giá trị ổn định bằng cách neo vào một tài sản như USD.", keynote: "Có thể đóng vai trò như một rail chuyển giá trị, không chỉ là tài sản để đầu cơ." },
-  { term: "Tokenization", vi: "Token hóa", category: "Công nghệ", meaning: "Biểu diễn quyền sở hữu hoặc quyền lợi đối với một tài sản dưới dạng token số để có thể ghi nhận, chuyển giao hoặc lập trình." },
+  { term: "Tokenization", vi: "Token hóa", category: "Công nghệ", meaning: "Thể hiện quyền sở hữu hoặc quyền lợi đối với một tài sản dưới dạng token số để có thể ghi nhận, chuyển giao hoặc lập trình." },
   { term: "Smart Contract", vi: "Hợp đồng thông minh", category: "Công nghệ", meaning: "Chương trình chạy trên blockchain, tự động thực hiện các điều kiện đã được viết sẵn khi dữ liệu đầu vào phù hợp." },
   { term: "Embedded Finance", vi: "Tài chính nhúng", category: "Công nghệ", meaning: "Đưa dịch vụ tài chính như thanh toán, tín dụng hoặc bảo hiểm trực tiếp vào hành trình của một sản phẩm phi tài chính." },
+  { term: "Vibe Coding", vi: "", category: "Công nghệ", meaning: "Cách tạo phần mềm bằng việc mô tả yêu cầu bằng ngôn ngữ tự nhiên để AI viết và chỉnh sửa code.", keynote: "Vibe coding giúp cả người không chuyên kỹ thuật nhanh chóng tạo prototype. Tuy nhiên, sản phẩm đưa vào vận hành vẫn cần kiểm tra kiến trúc, bảo mật, dữ liệu và chất lượng code bởi người có chuyên môn." },
   { term: "Automation", vi: "Tự động hóa", category: "Con người & tổ chức", meaning: "Dùng công nghệ để thực hiện thay con người một nhiệm vụ hoặc quy trình.", keynote: "Câu hỏi là phần việc nào nên giao cho máy, không phải nghề nào sẽ biến mất hoàn toàn." },
   { term: "Augmentation", vi: "Tăng cường năng lực con người", category: "Con người & tổ chức", meaning: "Dùng AI để giúp con người làm việc nhanh hơn hoặc tốt hơn, trong khi con người vẫn giữ vai trò ra quyết định.", keynote: "Automation thay thế một phần công việc; augmentation nâng năng lực người làm việc." },
   { term: "Human-in-the-loop", vi: "Con người trong vòng kiểm soát", category: "Con người & tổ chức", meaning: "Thiết kế quy trình trong đó con người kiểm tra, phê duyệt hoặc can thiệp vào quyết định của AI tại những điểm quan trọng." },
@@ -99,7 +100,7 @@ function renderTerms() {
         <button class="tcb-termhead" type="button" aria-expanded="${isExpanded}" data-term="${escapeHTML(item.term)}">
           <span>
             <strong>${escapeHTML(item.term)}</strong>
-            <small>${escapeHTML(item.vi)}</small>
+            ${item.vi ? `<small>${escapeHTML(item.vi)}</small>` : ""}
           </span>
           <span class="tcb-plus" aria-hidden="true">${isExpanded ? "−" : "+"}</span>
         </button>
