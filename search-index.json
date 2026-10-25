@@ -1,5 +1,22 @@
 [
   {
+    "title": "An explanation is not the same as oversight",
+    "url": "/posts/research/2026-10-25-an-explanation-is-not-the-same-as-oversight/",
+    "category": "research",
+    "date": "October 25, 2026",
+    "excerpt": "A convincing explanation can still hide how a model reaches its answer. Effective review requires something people can actually inspect.",
+    "tags": [
+      "posts",
+      "Human Oversight",
+      "Explainability",
+      "Accountability"
+    ],
+    "content": "Imagine a manager approving an AI recommendation because the explanation sounds reasonable. Has the manager checked the decision, or only the story attached to it? Cynthia Rudin’s 2019 paper makes a useful distinction. An interpretable model lets people inspect how its prediction is produced. A separate explanation of a complex model may only approximate that process. The explanation can sound convincing while missing something important. Drawing on technical arguments and examples, Rudin challenges the assumption that organisations must always sacrifice accuracy to get an understandable model. She argues for considering inherently interpretable models in high-stakes decisions. For business leaders, my takeaway is to ask vendors what reviewers can actually inspect. Can someone check the inputs, follow the decision logic, and identify missing information? A polished explanation alone does not answer those questions. For my research, this suggests separating access to an explanation from meaningful oversight. I would want to measure whether reviewers detect errors and challenge recommendations, alongside their reported trust and sense of accountability. This is a perspective paper, not an experiment comparing oversight levels. It does not prove that interpretable models always perform better or that explanations automatically improve accountability. Its examples also predate today’s generative-AI tools. Source: Rudin (2019), Nature Machine Intelligence, “Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead.” Source DOI: https://doi.org/10.1038/s42256-019-0048-x",
+    "series": "human-oversight-100",
+    "publication_date": "2026-10-25",
+    "source_doi": "https://doi.org/10.1038/s42256-019-0048-x"
+  },
+  {
     "title": "A little control can make AI easier to use",
     "url": "/posts/research/2026-10-24-a-little-control-can-make-ai-easier-to-use/",
     "category": "research",
