@@ -1,5 +1,22 @@
 [
   {
+    "title": "Human oversight needs more than an approval button",
+    "url": "/posts/research/2026-10-26-human-oversight-needs-more-than-an-approval-button/",
+    "category": "research",
+    "date": "October 26, 2026",
+    "excerpt": "Decide which parts of a workflow AI should handle before deciding how much authority to give it.",
+    "tags": [
+      "posts",
+      "Human Oversight",
+      "Automation",
+      "AI Decisions"
+    ],
+    "content": "“We keep a human in the loop” sounds reassuring. But what is that person actually doing? Parasuraman, Sheridan and Wickens offer a useful framework: separate collecting information, analysing it, choosing a decision, and carrying out the action. Automation can take different levels of control at each stage. Consider a purchasing workflow. AI could gather supplier information and compare options while a manager chooses the supplier and approves the order. That is different from AI placing the order and asking someone to monitor what happens afterwards. The paper draws on earlier research showing why this distinction matters. Automating decisions can reduce a person’s awareness of the situation. Highly reliable systems can also encourage insufficient monitoring, making occasional failures harder to catch. The authors recommend considering human performance, system reliability, and the consequences of mistakes when allocating control. My business takeaway: describe oversight as specific work. Who checks the evidence? Who selects the option? Who can stop the action, and do they have time to intervene? For my research, these distinctions could help define oversight conditions more precisely than “low” and “high.” Trust, actual reliance and perceived accountability would still need separate measurement. This is a qualitative design framework from 2000, not a modern generative-AI experiment. It offers no single optimal oversight level for every business. Source: Parasuraman, Sheridan & Wickens (2000), IEEE Transactions on Systems, Man, and Cybernetics—Part A, “A Model for Types and Levels of Human Interaction with Automation.” Source DOI: https://doi.org/10.1109/3468.844354",
+    "series": "human-oversight-100",
+    "publication_date": "2026-10-26",
+    "source_doi": "https://doi.org/10.1109/3468.844354"
+  },
+  {
     "title": "An explanation is not the same as oversight",
     "url": "/posts/research/2026-10-25-an-explanation-is-not-the-same-as-oversight/",
     "category": "research",
