@@ -1,5 +1,22 @@
 [
   {
+    "title": "Why a mistake can turn people away from AI",
+    "url": "/posts/research/2026-10-27-why-a-mistake-can-turn-people-away-from-ai/",
+    "category": "research",
+    "date": "October 27, 2026",
+    "excerpt": "Seeing a forecasting model make mistakes can discourage people from using it, even when it performs better overall.",
+    "tags": [
+      "posts",
+      "Human Oversight",
+      "Trust",
+      "Algorithm Aversion"
+    ],
+    "content": "A forecasting tool makes a visible mistake. Your team decides to trust its own judgment instead. Has the decision actually improved? Dietvorst, Simmons and Massey studied this problem in five experiments involving predictions of student success and airline passenger rankings. Participants chose whether a statistical model’s forecasts or a person’s forecasts would determine their bonus. Seeing the model perform, including its errors, reduced confidence in it and made participants less likely to choose it. This happened even though the model performed better overall. Seeing human mistakes did not consistently produce the same loss of confidence. For business leaders, my takeaway is to assess errors against a fair comparison. Track the accuracy of both the tool and the people reviewing it over multiple decisions. One memorable failure should prompt investigation, but it does not establish which approach works better. A useful oversight question: are reviewers rejecting recommendations because they have better evidence, or because the machine’s mistakes feel less acceptable? For my research, confidence ratings and the actual choice to rely on a forecast are distinct outcomes. This paper did not test whether greater oversight improves perceived accountability. These were controlled forecasting experiments, not modern generative-AI deployments. They also did not establish the best way to overcome this response. Source: Dietvorst, Simmons & Massey (2015), Journal of Experimental Psychology: General, “Algorithm Aversion: People Erroneously Avoid Algorithms After Seeing Them Err.” Advance online publication: 2014. Source DOI: https://doi.org/10.1037/xge0000033",
+    "series": "human-oversight-100",
+    "publication_date": "2026-10-27",
+    "source_doi": "https://doi.org/10.1037/xge0000033"
+  },
+  {
     "title": "Human oversight needs more than an approval button",
     "url": "/posts/research/2026-10-26-human-oversight-needs-more-than-an-approval-button/",
     "category": "research",
