@@ -1,5 +1,22 @@
 [
   {
+    "title": "More automation can still leave people in control",
+    "url": "/posts/research/2026-10-28-more-automation-can-still-leave-people-in-control/",
+    "category": "research",
+    "date": "October 28, 2026",
+    "excerpt": "Automation and human control can be designed as separate choices rather than opposite ends of a scale.",
+    "tags": [
+      "posts",
+      "Human Oversight",
+      "Human Control",
+      "AI Design"
+    ],
+    "content": "Does giving AI more work always mean giving people less control? Ben Shneiderman proposes a different way to think about this. His framework treats automation and human control as two separate dimensions. A system can automate substantial work while still letting people set goals, understand what is happening, and change direction. A familiar example is a camera: automatic focusing and exposure can support someone who still chooses the subject and timing. Automation helps the person carry out their intention. For a business illustration, imagine software that checks invoices and flags unusual charges. A manager could set review rules, inspect flagged cases, and stop a payment. The useful question is which controls remain available and whether people can actually use them. My takeaway is to evaluate control alongside efficiency. Can users see the system’s status? Can they revise instructions or reverse an action? Are decisions recorded so problems can be investigated? Shneiderman also discusses safety cultures and independent oversight. These are broader organizational practices, beyond adding an approval button. This is a conceptual framework, reviewed here through the author’s draft, not an experiment proving that more control increases trust. It does not quantify changes in reliance or perceived accountability. Some tasks require action too quickly for human intervention, so maximum control is not always appropriate. Source: Shneiderman (2020), International Journal of Human–Computer Interaction, “Human-Centered Artificial Intelligence: Reliable, Safe & Trustworthy.” Source DOI: https://doi.org/10.1080/10447318.2020.1741118",
+    "series": "human-oversight-100",
+    "publication_date": "2026-10-28",
+    "source_doi": "https://doi.org/10.1080/10447318.2020.1741118"
+  },
+  {
     "title": "Why a mistake can turn people away from AI",
     "url": "/posts/research/2026-10-27-why-a-mistake-can-turn-people-away-from-ai/",
     "category": "research",
