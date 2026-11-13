@@ -1,5 +1,22 @@
 [
   {
+    "title": "Responsibility starts before the approval click",
+    "url": "/posts/research/2026-11-13-responsibility-starts-before-the-approval-click/",
+    "category": "research",
+    "date": "November 13, 2026",
+    "excerpt": "The people who design an AI workflow also shape what its human reviewers can take responsibility for.",
+    "tags": [
+      "posts",
+      "Human Oversight",
+      "Accountability",
+      "Business Ethics"
+    ],
+    "content": "A manager approves an AI recommendation. Does that make the manager responsible for everything behind it? Kirsten Martin’s paper argues that responsibility begins earlier, when companies design the system. Algorithms do more than produce answers: their design shapes which information matters and what people are allowed to question or change. Her central argument is that developers should be accountable for these choices. If a system prevents users from understanding or meaningfully participating in a decision, its creators cannot simply shift responsibility onto those users. Complexity does not, by itself, remove ethical responsibility. For a business illustration, consider a hiring tool that gives a score without allowing recruiters to examine relevant information or challenge the result. Calling the recruiter the final decision-maker does not explain how effective review is supposed to happen. My practical takeaway is to define responsibilities before buying or deploying a tool. What can the reviewer inspect? What can they change? Who investigates a disputed result, and who can fix the system? For my research, this separates an ethical question—who should be accountable—from an empirical question—who people feel is accountable. Those may have different answers. This is a conceptual ethical argument, not an experiment showing that particular oversight levels improve trust, reliance, or perceived accountability. It does not establish legal liability. Source: Martin (2019), Journal of Business Ethics, “Ethical Implications and Accountability of Algorithms.” Published online in 2018. Source DOI: https://doi.org/10.1007/s10551-018-3921-3",
+    "series": "human-oversight-100",
+    "publication_date": "2026-11-13",
+    "source_doi": "https://doi.org/10.1007/s10551-018-3921-3"
+  },
+  {
     "title": "More automation can still leave people in control",
     "url": "/posts/research/2026-10-28-more-automation-can-still-leave-people-in-control/",
     "category": "research",
