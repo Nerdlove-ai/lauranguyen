@@ -1,5 +1,22 @@
 [
   {
+    "title": "When we trust AI, what do we mean",
+    "url": "/posts/research/2026-11-15-when-we-trust-ai-what-do-we-mean/",
+    "category": "research",
+    "date": "November 15, 2026",
+    "excerpt": "Confidence in a tool’s performance and trust in the people behind it are different questions.",
+    "tags": [
+      "posts",
+      "Trust",
+      "Accountability",
+      "Human Oversight"
+    ],
+    "content": "When someone says “I trust this AI,” what exactly are they trusting? Mark Ryan’s paper challenges the idea that trusting AI is the same as trusting a person. He argues that we can rely on a system to perform a task, while directing moral trust towards the people and organisations responsible for it. His reasoning compares different accounts of trust. Predicting reliable performance is different from expecting someone to act out of goodwill or accept responsibility for a commitment. Under his interpretation, narrow AI can support reliance without meeting those interpersonal requirements. For a business illustration, a manager might rely on a forecasting tool because its predictions have been useful. That does not answer whether the vendor will disclose problems, investigate failures, or respond fairly when something goes wrong. My practical takeaway is to ask two questions separately: how dependable is this tool for this task, and who is answerable for how it is developed and used? For my research, this suggests separating confidence in performance, willingness to use AI, observed reliance, and perceived accountability. An approval step might affect each differently; this paper does not test that possibility. This is a philosophical argument, not an experiment or a settled definition shared by all researchers. Its focus is narrow AI, and it provides no measured effect of oversight on trust. Source: Ryan (2020), Science and Engineering Ethics, “In AI We Trust: Ethics, Artificial Intelligence, and Reliability.” Source DOI: https://doi.org/10.1007/s11948-020-00228-y",
+    "series": "human-oversight-100",
+    "publication_date": "2026-11-15",
+    "source_doi": "https://doi.org/10.1007/s11948-020-00228-y"
+  },
+  {
     "title": "Responsibility starts before the approval click",
     "url": "/posts/research/2026-11-13-responsibility-starts-before-the-approval-click/",
     "category": "research",
