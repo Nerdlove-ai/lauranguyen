@@ -1,5 +1,22 @@
 [
   {
+    "title": "Having the final say can make AI advice easier to accept",
+    "url": "/posts/research/2026-11-24-having-the-final-say-can-make-ai-advice-easier-to-accept/",
+    "category": "research",
+    "date": "November 24, 2026",
+    "excerpt": "People were more accepting of advice when they could choose whether to follow it.",
+    "tags": [
+      "posts",
+      "Human Oversight",
+      "Acceptance",
+      "Decision Making"
+    ],
+    "content": "Would you feel differently about an AI recommendation if you could say no? Gabi Schaap and colleagues tested this question in three scenario experiments involving 1,192 UK participants. The scenarios concerned investing money or choosing a dating partner. Decisions came from either a human expert or an algorithm, with different promised benefits and levels of user control. Across all three studies, having the final say increased acceptance of the decision and stated willingness to use the decision-maker. Participants could either accept or reject advice, rather than have a decision automatically imposed on them. Whether the adviser was human or algorithmic mattered less consistently. This challenges the assumption that resistance always comes from disliking AI itself. For a business illustration, consider software recommending how to allocate a budget. Giving managers a genuine choice to reject its advice may matter more than simply promoting the software as intelligent. My practical question: can the reviewer actually change what happens, or only approve an outcome that is already fixed? These were hypothetical scenarios, not observations of workplace behaviour. The measured outcomes were acceptance and intended use—not trust, actual reliance, or perceived accountability. The findings do not establish that more control improves decision accuracy. Source: Schaap, Bosse and Hendriks Vettehen (2024; online 2023), AI & SOCIETY, “The ABC of algorithmic aversion.” Source DOI: https://doi.org/10.1007/s00146-023-01649-6",
+    "series": "human-oversight-100",
+    "publication_date": "2026-11-24",
+    "source_doi": "https://doi.org/10.1007/s00146-023-01649-6"
+  },
+  {
     "title": "When we trust AI, what do we mean",
     "url": "/posts/research/2026-11-15-when-we-trust-ai-what-do-we-mean/",
     "category": "research",
