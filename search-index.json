@@ -1,5 +1,22 @@
 [
   {
+    "title": "Human control starts with understanding the system",
+    "url": "/posts/research/2026-11-25-human-control-starts-with-understanding-the-system/",
+    "category": "research",
+    "date": "November 25, 2026",
+    "excerpt": "Someone must understand both what an automated system can do and their responsibility for its use.",
+    "tags": [
+      "posts",
+      "Human Oversight",
+      "Accountability",
+      "Responsible AI"
+    ],
+    "content": "Who understands your AI system—and knows they are responsible for how it is used? Filippo Santoni de Sio and Jeroen van den Hoven argue that meaningful human control needs more than a person near the controls. Their philosophical framework proposes two necessary conditions. First, the system must respond to relevant human reasons and facts in its environment. They call this “tracking.” A system that performs well by following irrelevant signals may fail this test. Second, its behaviour must be connected to people who understand its capabilities, possible consequences, and their own responsibility. They call this “tracing.” This is more than keeping a record of who clicked approve. For a business illustration, imagine a supplier-screening tool. The technical team understands its limits but assumes procurement owns every decision. Procurement accepts responsibility but overestimates what the tool can assess. Naming an owner has not resolved that gap. My practical takeaway: connect technical knowledge with responsibility. Give reviewers realistic tasks, training, and ways to act on problems. This is a conceptual account, developed around autonomous weapons and extended to areas such as automated driving. It does not measure trust, willingness to use AI, observed reliance, or perceived accountability. Nor does meaningful control alone guarantee an ethical outcome. Source: Santoni de Sio and van den Hoven (2018), Frontiers in Robotics and AI, “Meaningful Human Control over Autonomous Systems: A Philosophical Account.” Source DOI: https://doi.org/10.3389/frobt.2018.00015",
+    "series": "human-oversight-100",
+    "publication_date": "2026-11-25",
+    "source_doi": "https://doi.org/10.3389/frobt.2018.00015"
+  },
+  {
     "title": "Having the final say can make AI advice easier to accept",
     "url": "/posts/research/2026-11-24-having-the-final-say-can-make-ai-advice-easier-to-accept/",
     "category": "research",
